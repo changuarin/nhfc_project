@@ -4,83 +4,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Branches extends CI_Controller 
 {
 
-	/*public function index()
-	{
-
-		$this->load->library('pagination');
-
-		$config['base_url'] = 'branches/index';
-
-		$config['total_rows'] = $this->branch_model->count_all();
-		$config['per_page'] = 2;
-
-		$config['full_tag_open'] = '<ul>';
-		$config['last_tag_open'] = '<ul>';
-
-		$config['next_tag_open'] = '<li>';
-		$config['prev_tag_open'] = '<li>';
-
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-
-		$config['first_tag_close'] = '</li>';
-		$config['last_tag_close'] = '</li>';
-
-		$config['next_tag_close'] = '</li>';
-		$config['prev_tag_close'] = '</li>';
-
-		$config['cur_tag_open'] = '<li class=\"active\"><span><b>';
-		$config['prev_tag_close'] = '<b></span></li>';
-
-		$this->pagination->initialize('$config');
-
-		$data['main_content'] = 'branches/index';
-		$data['branches'] = $this->branch_model->get_branches();
-		$this->load->view('layouts/main', $data);
-	}
-	*/
 
 	public function index()
 	{
-		$this->load->library('pagination');
-		$config = array();
-		$config['base_url'] = "http://localhost/nhfc/branches/index";
-		$config['total_rows'] = $this->branch_model->count_all();
-		$config['per_page'] = 3;
+		// Get record count
+	 	 $this->load->library('pagination');
 
-		$config['full_tag_open'] = "<ul class='pagination'>";
-		$config['full_tag_close'] = '</ul>';
+	 	 $total_rows = $this->db->count_all('branches');
+	 	 $limit = 5;
 
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
+	 	 $start = $this->uri->segment(3);
 
-		$config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-		$config['cur_tag_close'] ="<span class='sr-only'></span></a></li>";
+	 	 $this->db->order_by('name','asc');
+	 	 $this->db->limit($limit, $start);
+	     $query = $this->db->get('branches');
+	     $data['branches'] = $query->result();
 
-		$config['next_tag_open'] = "<li>";
-		$config['next_tag_open'] = "</li>";
+	     $config['base_url'] = 'http://localhost/nhfc/index.php/branches/index/';
+	     $config['total_rows'] = $total_rows;
+	     $config['per_page'] = $limit;
 
-		$config['prev_tag_open'] = "<li>";
-		$config['prev_tag_close'] = "</li>";
+	     $config['full_tag_open'] = "<ul class='pagination'>";
+		 $config['full_tag_close'] ="</ul>";
+		 $config['num_tag_open'] = '<li>';
+		 $config['num_tag_close'] = '</li>';
+		 $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+		 $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+		 $config['next_tag_open'] = "<li>";
+		 $config['next_tagl_close'] = "</li>";
+		 $config['prev_tag_open'] = "<li>";
+		 $config['prev_tagl_close'] = "</li>";
+		 $config['first_tag_open'] = "<li>";
+		 $config['first_tagl_close'] = "</li>";
+		 $config['last_tag_open'] = "<li>";
+		 $config['last_tagl_close'] = "</li>";
 
-		$config['first_tag_open'] = "<li>";
-		$config['first_tag1_close'] = "</li>";
-
-		$config['last_tag_open'] = "<li>";
-		$config['last_tag1_close'] = "</li>";
-
-		
-
-		$this->pagination->initialize($config);
-		
-
-		$data['branches'] = $this->branch_model->get_branches($config['per_page'], $this->uri->segment(3));
-		//$data['links'] = 
-		$data['main_content'] = 'branches/index';
-		$this->load->view('layouts/main', $data);
-
-
-		
+	     
+	  
+	     $this->pagination->initialize($config);	
+	    $data['main_content'] = 'branches/index';
+		$this->load->view('layouts/main', $data);		
 	}
 	public function add_branch()
 	{

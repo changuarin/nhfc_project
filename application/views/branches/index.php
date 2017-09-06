@@ -109,7 +109,7 @@
                                             <table class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                    <td>ID</td>
+                                                    
                                                     <th>Branch</th>
                                                     <th>Company</th>
                                                     <th>Officer In Charge</th>
@@ -121,7 +121,7 @@
                                                 <?php if(isset($branches)) : ?>
                                                     <?php foreach($branches as $branch) : ?>
                                                     <tr>
-                                                        <td><?php echo $branch->id; ?></td>
+                                                       
                                                         <td><?php echo $branch->name; ?></td>
                                                         <td><?php echo $branch->company; ?></td>
                                                         <td><?php echo $branch->office_in_charge; ?></td>
@@ -137,11 +137,9 @@
                                                     <?php endforeach; ?>
                                                 <?php endif; ?>
                                             </table>
-                                            <div class="form-group">
-                                                <?php 
-                                              echo $this->pagination->create_links();
-                                                 ?>
-                                            </div>     
+                                            
+                                            <?php echo $this->pagination->create_links(); ?>
+                                                 
                                         </div>
                                     </div>      
                                 </div>
