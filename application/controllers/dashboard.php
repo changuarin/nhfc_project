@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller {
 	// Landing Page of Accounting , Collection , Sales
 	public function landingpage()
 	{
-		$data['main_content'] = 'modules/dashboard';
+		$data['main_content'] = 'modules/landingpage/dashboard';
 
 		$this->load->view('layouts/main', $data);
 	}

@@ -18,7 +18,7 @@
         <!-- Top Navigation: Right Menu -->
         <ul class="nav navbar-right navbar-top-links">
             <li class="dropdown navbar-inverse">
-                <a href="<?php echo base_url(); ?>branches/all_branch">
+                <a href="<?php echo base_url(); ?>branches/index">
                     Change Branch 
                 </a>
                 
@@ -46,14 +46,14 @@
                  <ul class="nav" id="side-menu">
 
                     <li>
-                        <a href="<?php echo base_url(); ?>dashboard/landingpage" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="<?php echo base_url(); ?>dashboard/index" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
 
                     <li>
                         <a href="#" ><i class="fa fa-folder fa-fw"></i> Master<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Client</a>
+                                    <a href="<?php echo base_url(); ?>master/index">Client</a>
                                 </li>
                                  <li>
                                     <a href="#">Verification</a>

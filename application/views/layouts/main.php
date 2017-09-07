@@ -26,6 +26,8 @@
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url(); ?>/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap-theme.min.css') ?>">
     <style type="text/css">
           .modal-content
     {
@@ -48,10 +50,19 @@
         margin-left: 300px;
     }
     .modal-body {
-   max-height: 100%;
-overflow-y: auto;
+       max-height: 100%;
+        overflow-y: auto;
     
 }
+    .margin3
+    {
+        margin-left: 680px;
+    }
+     .margin4
+    {
+        margin-left: 750px;
+    }
+
     </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

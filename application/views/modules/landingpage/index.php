@@ -1,3 +1,4 @@
+
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -49,7 +50,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo base_url();?>login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                   <li><a href="<?php echo base_url();?>login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>
@@ -62,14 +63,12 @@
                 <ul class="nav" id="side-menu">
                     
                     <li>
-                        <a href="<?php echo base_url(); ?>dashboard/index" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="<?php echo base_url(); ?>dashboard/landingpage" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url();?>branches/index" ><i class="fa fa-sitemap fa-fw"></i> Branches</a>
+                        <a href="<?php echo base_url();?>branches/all_branch" class="active"><i class="fa fa-sitemap fa-fw"></i> Branches</a>
                     </li>
-                     <li>
-                        <a href="<?php echo base_url();?>login/get_users" class="active"><i class="fa fa-users fa-fw"></i> Accounts</a>
-                    </li>
+                     
                 </ul>
 
             </div>
@@ -81,27 +80,25 @@
     <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="page-header">Accounts</h2>
-
+                            <h2 class="page-header">Xavi Overview</h2>
                         </div>
                     </div>
 
-
-                    <?php if($this->session->flashdata('user_added')) : ?>
-                            <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('user_added'); ?></p>
+                    <?php if($this->session->flashdata('branch_added')) : ?>
+                          <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('branch_added'); ?></p>
                     <?php endif; ?>
-                    <?php if($this->session->flashdata('user_updated')) : ?>
-                            <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('user_updated'); ?></p>
+                    <?php if($this->session->flashdata('branch_updated')) : ?>
+                         <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('branch_updated'); ?></p>
                     <?php endif; ?>
-                    <?php if($this->session->flashdata('user_deleted')) : ?>
-                            <p class="alert alert-dismissable alert-danger"><?php echo $this->session->flashdata('user_deleted'); ?></p>
+                    <?php if($this->session->flashdata('branch_deleted')) : ?>
+                          <p class="alert alert-dismissable alert-danger"><?php echo $this->session->flashdata('branch_deleted'); ?></p>
                     <?php endif; ?>  
-                    <!-- TABLE OF USERS -->
+                    <!-- TABLE OF BRANCHES -->
                     <div class="row">
                         <div class="col-lg-12">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>login/add">Add</a>
+                                        <h4>List of Branches</h4>
                                     </div>
                                 
                                     <div class="panel-body">
@@ -109,38 +106,38 @@
                                             <table class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                    <td>ID</td>
-                                                    <th>First Name</th>
-                                                    <th>Middle Name</th>
-                                                    <th>Last Name</th>
-                                                    <th>TYPE</th>
-                                                    <th>Content</th>
+                                                   
+                                                    <th>Branch</th>
+                                                    <th>Company</th>
+                                                    <th>Officer In Charge</th>
+                                                    <th>Telephone No.</th>
+                                                    <th>Action</th>
                                                 </tr>
                                              </thead>
 
-                                                <?php if(isset($users)) : ?>
-                                                    <?php foreach($users as $user) : ?>
+                                                <?php if(isset($branches)) : ?>
+                                                    <?php foreach($branches as $branch) : ?>
                                                     <tr>
-                                                        <td><?php echo $user->id; ?></td>
-                                                        <td><?php echo $user->first_name; ?></td>
-                                                        <td><?php echo $user->middle_name; ?></td>
-                                                        <td><?php echo $user->last_name; ?></td>
-                                                        <td><?php echo $user->access; ?></td>
-                                                       
+                                                      
+                                                        <td><?php echo $branch->name; ?></td>
+                                                        <td><?php echo $branch->company; ?></td>
+                                                        <td><?php echo $branch->office_in_charge; ?></td>
+                                                        <td><?php echo $branch->telephone_no; ?></td>
                                                         
                                                         <td>
-                                                            
-                                                            <a class="btn btn-info" href="<?php echo base_url(); ?>login/edit/<?php echo $user->id; ?>">Edit</a>
-                                                            <a class="btn btn-danger btn-sm delete-btn" href="<?php echo base_url(); ?>login/delete_user/<?php echo $user->id; ?>">Delete</a>
+                                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>branches/all_modules">Activate</a>
+                                                           
                                                             
                                                         </td>
+
                                                     </tr>
+                                                  
                                                     <?php endforeach; ?>
                                                 <?php endif; ?>
                                             </table>
-                                            <div class="margin4">
+                                             <div class="margin3">
                                                 <?php echo $this->pagination->create_links(); ?>
-                                            </div> 
+                                            </div>  
                                         </div>
                                     </div>      
                                 </div>

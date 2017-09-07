@@ -134,9 +134,52 @@ class Branches extends CI_Controller
 
 	public function all_branch()
 	{
+		// Get record count
+	 	 $this->load->library('pagination');
 
+	 	 $total_rows = $this->db->count_all('branches');
+	 	 $limit = 5;
+
+	 	 $start = $this->uri->segment(3);
+
+	 	 $this->db->order_by('name','asc');
+	 	 $this->db->limit($limit, $start);
+	     $query = $this->db->get('branches');
+	     $data['branches'] = $query->result();
+
+	     $config['base_url'] = 'http://localhost/nhfc/index.php/branches/all_branch/';
+	     $config['total_rows'] = $total_rows;
+	     $config['per_page'] = $limit;
+
+	     $config['full_tag_open'] = "<ul class='pagination'>";
+		 $config['full_tag_close'] ="</ul>";
+		 $config['num_tag_open'] = '<li>';
+		 $config['num_tag_close'] = '</li>';
+		 $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+		 $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+		 $config['next_tag_open'] = "<li>";
+		 $config['next_tagl_close'] = "</li>";
+		 $config['prev_tag_open'] = "<li>";
+		 $config['prev_tagl_close'] = "</li>";
+		 $config['first_tag_open'] = "<li>";
+		 $config['first_tagl_close'] = "</li>";
+		 $config['last_tag_open'] = "<li>";
+		 $config['last_tagl_close'] = "</li>";
+
+	    $this->pagination->initialize($config);	
+	    $data['main_content'] = 'modules/landingpage/index';
+		$this->load->view('layouts/main', $data);
+	}
+
+	public function all_modules()
+	{
 		$data['main_content'] = 'modules/index';
-		$data['branches'] = $this->branch_model->get_branches();
+		$this->load->view('layouts/main', $data);
+	}
+
+	public function admin_all_modules()
+	{
+		$data['main_content'] = 'modules/index2';
 		$this->load->view('layouts/main', $data);
 	}
 
