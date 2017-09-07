@@ -245,77 +245,7 @@
         </div>
     </nav>
 <style type="text/css">
-    .row1
-    {
-        margin-left: -60px;
-        margin-top: 10px;
-    }
-
-     .row2
-    {
-        margin-left: 20px;
-    }
-
-     .right_row
-    {
-        margin-left: 580px;
-        margin-top: -500px;
-       
-    }
-
-    .right_row1
-    {
-        margin-left: 580px;
-        margin-top: -460px;
-       
-    }
-
-    .right_row2
-    {
-        margin-left: 580px;
-        margin-top: -420px;
-       
-    }
-
-    .right_row3
-    {
-        margin-left: 580px;
-        margin-top: -380px;
-       
-    }
-
-     .right_row4
-    {
-        margin-left: 580px;
-        margin-top: -340px;
-       
-    }
-
-     .right_row5
-    {
-        margin-left: 560px;
-        margin-top: -180px;
-         
-    }
-
-     .right_row6
-    {
-        margin-left: 560px;
-        margin-top: -160px;
-         
-    }
-      
-    form
-    {
-        margin-top: 50px;
-    }
-
-    .btn-size
-    {
-        margin-left: 500px;
-        padding-bottom: 70px;
-        padding-top: 20px;
-    }
+    
    
 </style>
     <!-- Page Content -->
@@ -325,201 +255,197 @@
            
 
             <form  action="<?php echo base_url('branches/add_branch/') ?>" method="post" class="form-horizontal">
-        <div class="row">    
-            <div class="col-sm-17">
-                <div class="panel panel-primary">
-                        <div class="panel-heading">
-                                    <h5 class="panel-title">Client Information Form</h5>
-                        </div>
-                    <div class="row1">
-                        <div class="panel-body">
+                <div class="row">    
+                    <div class="col-sm-17">
+                        <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                            <h5 class="panel-title">Client Information Form</h5>
+                                </div>
+                            <div class="row1">
+                                <div class="panel-body">
+                                    
+                                    <div class="form-group" >
+                                         <label class="control-label col-md-2">First Name: </label>
+                                                <div class="col-md-1">
+                                                    <input class="form-control input-sm"  type="text" name="name"  >    
+                                                </div>                             
+                                    </div> 
+
+                                    <div class="form-group" >
+                                         <label class="control-label col-md-2">Middle Name: </label>
+                                                <div class="col-md-1">
+                                                    <input class="form-control input-sm"  type="text" name="name"  >    
+                                                </div>                             
+                                    </div> 
+
+                                    <div class="form-group" >
+                                         <label class="control-label col-md-2">Last Name: </label>
+                                                <div class="col-md-1">
+                                                    <input class="form-control input-sm"  type="text" name="name"  >    
+                                                </div>                             
+                                    </div> 
+
+                                    <div class="form-group" >
+                                         <label class="control-label col-md-2">BirthDate: </label>
+                                                <div class="col-md-1">
+                                                    <input class="form-control input-sm"  type="date" name="name"  >    
+                                                </div>                             
+                                    </div>
+
+                                    <div class="row2">
+
+                                        <div class="form-group">
+                                              <label class="control-label col-md-2">Gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                    <select class="form-control input-sm" class="qw"  name="company">
+                                                        <option value="male">-SELECT-</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                    </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                              <label class="control-label col-md-2">Civil Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                    <select class="form-control input-sm" class="qw"  name="company">
+                                                        <option value="male">-SELECT-</option>
+                                                        <option value="single">Single</option>
+                                                        <option value="married">Married</option>
+                                                        <option value="separated">Separated</option>
+                                                        <option value="widon">Widow</option>
+                                                    </select>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                             <label class="control-label col-md-2">Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                    <textarea class="form-control" id="exampleTextarea" rows="2"></textarea>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group" >
+                                         <label class="control-label col-md-2">Telephone No: </label>
+                                                <div class="col-md-1">
+                                                    <input class="form-control input-sm"  type="text" name="name"  >    
+                                                </div>                             
+                                    </div>
+
+                                    <div class="form-group" >
+                                         <label class="control-label col-md-2">Cellphone No: </label>
+                                                <div class="col-md-1">
+                                                    <input class="form-control input-sm"  type="text" name="name"  >    
+                                                </div>                             
+                                    </div>
+
+                                    <div class="form-group" >
+                                            <label class="control-label col-md-2">Res.Cert No: </label>
+                                                <div class="col-md-1">
+                                                    <input class="form-control input-sm"  type="text" name="name">    
+                                                </div>                             
+                                    </div>
+
+                                    <div class="right_row">
+                                           
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Payment Type:</label>
+                                                    <select class="form-control input-sm"   name="company">
+                                                        <option value="male">-SELECT-</option>
+                                                        <option value="sss">SSS</option>
+                                                        <option value="gsis">GSIS</option>
+                                                        <option value="pvao">PVAO</option>
+                                                        <option value="others">Others</option>
+                                                    </select>
+                                                </div>
+                                    </div>
+
+                                    <div class="right_row1">            
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Client Type:</label>
+                                                    <select class="form-control input-sm"  name="company">
+                                                        <option value="male">-SELECT-</option>
+                                                        <option value="male">Client Pension</option>
+                                                        <option value="male">Client Salary</option>
+                                                        <option value="male">Client Others</option>
+                                                        <option value="male">Accom Employee</option>
+                                                        <option value="female">Accom Agent</option>
+                                                    </select>
+                                                </div>
+                                           
+                                    </div>
+
+                                    <div class="right_row2">            
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Status:</label>
+                                                    <select class="form-control input-sm"  name="company">
+                                                        <option value="male">-SELECT-</option>
+                                                        <option value="active">Active</option>
+                                                        <option value="inactive">Inactive</option>
+                                                    </select>
+                                                </div>
+                                           
+                                    </div>
+
+                                    <div class="right_row3">            
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Group:</label>
+                                                    <select class="form-control input-sm"  name="company">
+                                                        <option value="male">-SELECT-</option>
+                                                        <option value="new">New</option>
+                                                        <option value="old">Old</option>
+                                                    </select>
+                                                </div>
+                                           
+                                    </div>
+
+                                    <div class="right_row4">            
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Branch:</label>
+                                                    <select class="form-control input-sm"  name="company">
+                                                        <option value="male">-SELECT-</option>
+                                                        <option value="new">Abalang</option>
+                                                        <option value="old">Alaminos</option>
+                                                    </select>
+                                                </div>
+                                           
+                                    </div>
+
+                                    <div class="right_row5">            
+
+                                        <div class="form-group" >
+                                                    <label class="control-label col-md-3">Agent: </label>
+                                                <div class="col-md-1">
+                                                    <input class="form-control input-sm"  type="text" name="name">    
+                                                </div>                             
+                                        </div>
+                                           
+                                    </div>
+
+                                    <div class="right_row6">            
+
+                                        <div class="form-group" >
+                                                    <label class="control-label col-md-3">Sub-Agent: </label>
+                                                <div class="col-md-1">
+                                                    <input class="form-control input-sm"  type="text" name="name">    
+                                                </div>                             
+                                        </div>
+                                           
+                                    </div>
+
+                                    <div class="btn-size1">
+                                        <button type="submit" class="btn btn-primary col-md-2">Submit</button>
+                                    </div> 
+
                             
-                            <div class="form-group" >
-                                 <label class="control-label col-md-2">First Name: </label>
-                                        <div class="col-md-1">
-                                            <input class="form-control input-sm"  type="text" name="name"  >    
-                                        </div>                             
-                            </div> 
 
-                            <div class="form-group" >
-                                 <label class="control-label col-md-2">Middle Name: </label>
-                                        <div class="col-md-1">
-                                            <input class="form-control input-sm"  type="text" name="name"  >    
-                                        </div>                             
-                            </div> 
-
-                            <div class="form-group" >
-                                 <label class="control-label col-md-2">Last Name: </label>
-                                        <div class="col-md-1">
-                                            <input class="form-control input-sm"  type="text" name="name"  >    
-                                        </div>                             
-                            </div> 
-
-                            <div class="form-group" >
-                                 <label class="control-label col-md-2">BirthDate: </label>
-                                        <div class="col-md-1">
-                                            <input class="form-control input-sm"  type="date" name="name"  >    
-                                        </div>                             
-                            </div>
-
-                            <div class="row2">
-
-                                <div class="form-group">
-                                      <label class="control-label col-md-2">Gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                            <select class="form-control input-sm" class="qw"  name="company">
-                                                <option value="male">-SELECT-</option>
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
-                                            </select>
                                 </div>
-
-                                <div class="form-group">
-                                      <label class="control-label col-md-2">Civil Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                            <select class="form-control input-sm" class="qw"  name="company">
-                                                <option value="male">-SELECT-</option>
-                                                <option value="single">Single</option>
-                                                <option value="married">Married</option>
-                                                <option value="separated">Separated</option>
-                                                <option value="widon">Widow</option>
-                                            </select>
-                                </div>
-
-
-                                <div class="form-group">
-                                     <label class="control-label col-md-2">Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                            <textarea class="form-control" id="exampleTextarea" rows="2"></textarea>
-                                </div>
-
                             </div>
-
-                            <div class="form-group" >
-                                 <label class="control-label col-md-2">Telephone No: </label>
-                                        <div class="col-md-1">
-                                            <input class="form-control input-sm"  type="text" name="name"  >    
-                                        </div>                             
-                            </div>
-
-                            <div class="form-group" >
-                                 <label class="control-label col-md-2">Cellphone No: </label>
-                                        <div class="col-md-1">
-                                            <input class="form-control input-sm"  type="text" name="name"  >    
-                                        </div>                             
-                            </div>
-
-                            <div class="form-group" >
-                                    <label class="control-label col-md-2">Res.Cert No: </label>
-                                        <div class="col-md-1">
-                                            <input class="form-control input-sm"  type="text" name="name">    
-                                        </div>                             
-                            </div>
-
-                            <div class="right_row">
-                                   
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Payment Type:</label>
-                                            <select class="form-control input-sm"   name="company">
-                                                <option value="male">-SELECT-</option>
-                                                <option value="sss">SSS</option>
-                                                <option value="gsis">GSIS</option>
-                                                <option value="pvao">PVAO</option>
-                                                <option value="others">Others</option>
-                                            </select>
-                                        </div>
-                            </div>
-
-                            <div class="right_row1">            
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Client Type:</label>
-                                            <select class="form-control input-sm"  name="company">
-                                                <option value="male">-SELECT-</option>
-                                                <option value="male">Client Pension</option>
-                                                <option value="male">Client Salary</option>
-                                                <option value="male">Client Others</option>
-                                                <option value="male">Accom Employee</option>
-                                                <option value="female">Accom Agent</option>
-                                            </select>
-                                        </div>
-                                   
-                            </div>
-
-                            <div class="right_row2">            
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Status:</label>
-                                            <select class="form-control input-sm"  name="company">
-                                                <option value="male">-SELECT-</option>
-                                                <option value="active">Active</option>
-                                                <option value="inactive">Inactive</option>
-                                            </select>
-                                        </div>
-                                   
-                            </div>
-
-                            <div class="right_row3">            
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Group:</label>
-                                            <select class="form-control input-sm"  name="company">
-                                                <option value="male">-SELECT-</option>
-                                                <option value="new">New</option>
-                                                <option value="old">Old</option>
-                                            </select>
-                                        </div>
-                                   
-                            </div>
-
-                            <div class="right_row4">            
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Branch:</label>
-                                            <select class="form-control input-sm"  name="company">
-                                                <option value="male">-SELECT-</option>
-                                                <option value="new">Abalang</option>
-                                                <option value="old">Alaminos</option>
-                                            </select>
-                                        </div>
-                                   
-                            </div>
-
-                            <div class="right_row5">            
-
-                                <div class="form-group" >
-                                            <label class="control-label col-md-3">Agent: </label>
-                                        <div class="col-md-1">
-                                            <input class="form-control input-sm"  type="text" name="name">    
-                                        </div>                             
-                                </div>
-                                   
-                            </div>
-
-                            <div class="right_row6">            
-
-                                <div class="form-group" >
-                                            <label class="control-label col-md-3">Sub-Agent: </label>
-                                        <div class="col-md-1">
-                                            <input class="form-control input-sm"  type="text" name="name">    
-                                        </div>                             
-                                </div>
-                                   
-                            </div>
-
-                            <div class="btn-size">
-                                <button type="submit" class="btn btn-primary col-md-2">Submit</button>
-                            </div> 
-
-                            
-
                         </div>
                     </div>
-
-                    
-
-
                 </div>
-        </div> 
-    </div>
-               
+            </form>              
            <!-- <div class="row1">
                 <div class="form-group" >
                     <label class="control-label col-md-2">Client Code: </label>
@@ -550,15 +476,8 @@
                 </div>
             </div>  
             -->   
-              
-                    
-            
-
-
-
-            
-    
-        </form>
+ 
+        
             <!-- ... Your content goes here ... -->
 
         </div>

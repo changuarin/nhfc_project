@@ -63,6 +63,78 @@
         margin-left: 750px;
     }
 
+    .row1
+    {
+        margin-left: -60px;
+        margin-top: 10px;
+    }
+
+     .row2
+    {
+        margin-left: 20px;
+    }
+
+     .right_row
+    {
+        margin-left: 580px;
+        margin-top: -500px;
+       
+    }
+
+    .right_row1
+    {
+        margin-left: 580px;
+        margin-top: -460px;
+       
+    }
+
+    .right_row2
+    {
+        margin-left: 580px;
+        margin-top: -420px;
+       
+    }
+
+    .right_row3
+    {
+        margin-left: 580px;
+        margin-top: -380px;
+       
+    }
+
+     .right_row4
+    {
+        margin-left: 580px;
+        margin-top: -340px;
+       
+    }
+
+     .right_row5
+    {
+        margin-left: 560px;
+        margin-top: -180px;
+         
+    }
+
+     .right_row6
+    {
+        margin-left: 560px;
+        margin-top: -160px;
+         
+    }
+      
+    form
+    {
+        margin-top: 50px;
+    }
+
+    .btn-size1
+    {
+        margin-left: 500px;
+        padding-bottom: 70px;
+        padding-top: 20px;
+    }
+
     </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
