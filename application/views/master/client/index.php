@@ -246,15 +246,19 @@
     </nav>
 <style type="text/css">
     
-   
+      
+
 </style>
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
 
-           
+         
+            <form  action="<?php echo base_url('master/add_client/') ?>" method="post" class="form-horizontal">
 
-            <form  action="<?php echo base_url('branches/add_branch/') ?>" method="post" class="form-horizontal">
+            <?php if($this->session->flashdata('added_client')) : ?>
+                          <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('added_client'); ?></p>
+            <?php endif; ?>
                 <div class="row">    
                     <div class="col-sm-17">
                         <div class="panel panel-primary">
@@ -267,28 +271,28 @@
                                     <div class="form-group" >
                                          <label class="control-label col-md-2">First Name: </label>
                                                 <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="name"  >    
+                                                    <input class="form-control input-sm"  type="text" name="first_name"  >    
                                                 </div>                             
                                     </div> 
 
                                     <div class="form-group" >
                                          <label class="control-label col-md-2">Middle Name: </label>
                                                 <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="name"  >    
+                                                    <input class="form-control input-sm"  type="text" name="middle_name"  >    
                                                 </div>                             
                                     </div> 
 
                                     <div class="form-group" >
                                          <label class="control-label col-md-2">Last Name: </label>
                                                 <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="name"  >    
+                                                    <input class="form-control input-sm"  type="text" name="last_name"  >    
                                                 </div>                             
                                     </div> 
 
                                     <div class="form-group" >
                                          <label class="control-label col-md-2">BirthDate: </label>
                                                 <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="date" name="name"  >    
+                                                    <input class="form-control input-sm datepicker"   type="text" name="birthdate" placeholder="MM/DD/YYYY"  >    
                                                 </div>                             
                                     </div>
 
@@ -296,7 +300,7 @@
 
                                         <div class="form-group">
                                               <label class="control-label col-md-2">Gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                                    <select class="form-control input-sm" class="qw"  name="company">
+                                                    <select class="form-control input-sm" class="qw"  name="gender">
                                                         <option value="male">-SELECT-</option>
                                                         <option value="male">Male</option>
                                                         <option value="female">Female</option>
@@ -305,7 +309,7 @@
 
                                         <div class="form-group">
                                               <label class="control-label col-md-2">Civil Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                                    <select class="form-control input-sm" class="qw"  name="company">
+                                                    <select class="form-control input-sm" class="qw"  name="civil_status">
                                                         <option value="male">-SELECT-</option>
                                                         <option value="single">Single</option>
                                                         <option value="married">Married</option>
@@ -317,7 +321,7 @@
 
                                         <div class="form-group">
                                              <label class="control-label col-md-2">Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                                    <textarea class="form-control" id="exampleTextarea" rows="2"></textarea>
+                                                    <textarea class="form-control" rows="2" name="address"></textarea>
                                         </div>
 
                                     </div>
@@ -325,34 +329,57 @@
                                     <div class="form-group" >
                                          <label class="control-label col-md-2">Telephone No: </label>
                                                 <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="name"  >    
+                                                    <input class="form-control input-sm"  type="text" name="telephone_no"  >    
                                                 </div>                             
                                     </div>
 
                                     <div class="form-group" >
                                          <label class="control-label col-md-2">Cellphone No: </label>
                                                 <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="name"  >    
+                                                    <input class="form-control input-sm"  type="text" name="mobile_no"  >    
                                                 </div>                             
                                     </div>
 
                                     <div class="form-group" >
                                             <label class="control-label col-md-2">Res.Cert No: </label>
                                                 <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="name">    
+                                                    <input class="form-control input-sm"  type="text" name="res_cert_no">    
+                                                </div>                             
+                                    </div>
+
+                                   
+
+                                    <div class="form-group" >
+                                                    <label class="control-label col-md-2">Amount: </label>
+                                                <div class="col-md-1">
+                                                    <input class="form-control input-sm"  type="text" name="pension_amount">    
+                                                </div>                             
+                                    </div>
+
+                                    <div class="image_location">            
+
+                                        <div class="form-group" >
+                                                <div class="upload_img">
+                                                <img src="<?php echo base_url(); ?>assets/img/senior.png" width="150px;" height="150px;">
+                                                </div>
+                                                <br>
+                                                 <input type="file" name="picture" size="20" multiple="true" />
+
+                                                
                                                 </div>                             
                                     </div>
 
                                     <div class="right_row">
                                            
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3">Payment Type:</label>
-                                                    <select class="form-control input-sm"   name="company">
-                                                        <option value="male">-SELECT-</option>
-                                                        <option value="sss">SSS</option>
-                                                        <option value="gsis">GSIS</option>
-                                                        <option value="pvao">PVAO</option>
-                                                        <option value="others">Others</option>
+                                                    <label class="control-label col-md-2">Payment Type:</label>
+                                                    <select class="form-control input-sm"   name="payment_source">
+                                                        <option value="0">-SELECT-</option> 
+                                                        <?php if(isset($payments)) : ?>
+                                                            <?php foreach($payments as $payment) : ?>  
+                                                                <option value="<?php echo $payment->id; ?>"><?php echo $payment->name; ?></option>
+                                                            <?php endforeach; ?>
+                                                        <?php endif; ?>
                                                     </select>
                                                 </div>
                                     </div>
@@ -360,14 +387,14 @@
                                     <div class="right_row1">            
 
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3">Client Type:</label>
-                                                    <select class="form-control input-sm"  name="company">
-                                                        <option value="male">-SELECT-</option>
-                                                        <option value="male">Client Pension</option>
-                                                        <option value="male">Client Salary</option>
-                                                        <option value="male">Client Others</option>
-                                                        <option value="male">Accom Employee</option>
-                                                        <option value="female">Accom Agent</option>
+                                                    <label class="control-label col-md-2">Client Type:</label>
+                                                    <select class="form-control input-sm"  name="pension_type">
+                                                        <option value="0">-SELECT-</option> 
+                                                        <?php if(isset($pensions)) : ?>
+                                                            <?php foreach($pensions as $pension) : ?>  
+                                                                <option value="<?php echo $pension->id; ?>"><?php echo $pension->name; ?></option>
+                                                            <?php endforeach; ?>
+                                                        <?php endif; ?>
                                                     </select>
                                                 </div>
                                            
@@ -376,11 +403,10 @@
                                     <div class="right_row2">            
 
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3">Status:</label>
-                                                    <select class="form-control input-sm"  name="company">
-                                                        <option value="male">-SELECT-</option>
-                                                        <option value="active">Active</option>
-                                                        <option value="inactive">Inactive</option>
+                                                    <label class="control-label col-md-2">Status:</label>
+                                                    <select class="form-control input-sm"  name="is_active">
+                                                        <option value="1">Active</option>
+                                                        <option value="0">Inactive</option>
                                                     </select>
                                                 </div>
                                            
@@ -389,8 +415,8 @@
                                     <div class="right_row3">            
 
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3">Group:</label>
-                                                    <select class="form-control input-sm"  name="company">
+                                                    <label class="control-label col-md-2">Group:</label>
+                                                    <select class="form-control input-sm"  name="group">
                                                         <option value="male">-SELECT-</option>
                                                         <option value="new">New</option>
                                                         <option value="old">Old</option>
@@ -402,11 +428,14 @@
                                     <div class="right_row4">            
 
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3">Branch:</label>
-                                                    <select class="form-control input-sm"  name="company">
-                                                        <option value="male">-SELECT-</option>
-                                                        <option value="new">Abalang</option>
-                                                        <option value="old">Alaminos</option>
+                                                    <label class="control-label col-md-2">Branch:</label>
+                                                    <select class="form-control input-sm"  name="branch_id">
+                                                    <option value="0">-SELECT-</option> 
+                                                <?php if(isset($branches)) : ?>
+                                                    <?php foreach($branches as $branch) : ?>  
+                                                        <option value="<?php echo $branch->id; ?>"><?php echo $branch->name; ?></option>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
                                                     </select>
                                                 </div>
                                            
@@ -415,9 +444,9 @@
                                     <div class="right_row5">            
 
                                         <div class="form-group" >
-                                                    <label class="control-label col-md-3">Agent: </label>
+                                                    <label class="control-label col-md-2">Agent: </label>
                                                 <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="name">    
+                                                    <input class="form-control input-sm"  type="text" name="agent">    
                                                 </div>                             
                                         </div>
                                            
@@ -426,9 +455,9 @@
                                     <div class="right_row6">            
 
                                         <div class="form-group" >
-                                                    <label class="control-label col-md-3">Sub-Agent: </label>
+                                                    <label class="control-label col-md-2">Sub-Agent: </label>
                                                 <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="name">    
+                                                    <input class="form-control input-sm"  type="text" name="sub_agent">    
                                                 </div>                             
                                         </div>
                                            
@@ -497,3 +526,15 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url(); ?>/assets/js/startmin.js"></script>
+
+
+<script src="<?php echo base_url(); ?>/assets/js/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+
+    });
+</script>

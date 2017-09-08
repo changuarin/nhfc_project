@@ -62,13 +62,14 @@
                 <ul class="nav" id="side-menu">
                     
                     <li>
-                        <a href="<?php echo base_url(); ?>dashboard/index" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="<?php echo base_url(); ?>user/index" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url();?>branches/index" ><i class="fa fa-sitemap fa-fw"></i> Branches</a>
+                        <a href="<?php echo base_url();?>master/branch_index" ><i class="fa fa-sitemap fa-fw"></i> Branches</a>
                     </li>
+               
                      <li>
-                        <a href="<?php echo base_url();?>login/get_users" class="active"><i class="fa fa-users fa-fw"></i> Accounts</a>
+                        <a href="<?php echo base_url();?>master/account_index"><i class="fa fa-users fa-fw"></i> Accounts</a>
                     </li>
                 </ul>
 
@@ -101,7 +102,7 @@
                         <div class="col-lg-12">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>login/add">Add</a>
+                                        <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>master/account_add">Add</a>
                                     </div>
                                 
                                     <div class="panel-body">
@@ -130,8 +131,8 @@
                                                         
                                                         <td>
                                                             
-                                                            <a class="btn btn-info" href="<?php echo base_url(); ?>login/edit/<?php echo $user->id; ?>">Edit</a>
-                                                            <a class="btn btn-danger btn-sm delete-btn" href="<?php echo base_url(); ?>login/delete_user/<?php echo $user->id; ?>">Delete</a>
+                                                            <a class="btn btn-info" href="<?php echo base_url(); ?>master/account_edit/<?php echo $user->id; ?>">Edit</a>
+                                                            <a class="btn btn-danger btn-sm delete-btn" href="<?php echo base_url(); ?>master/account_delete/<?php echo $user->id; ?>">Delete</a>
                                                             
                                                         </td>
                                                     </tr>
@@ -164,23 +165,4 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url(); ?>/assets/js/startmin.js"></script>
-<script >
-function showModal(modalId) {
-    var modal = document.getElementById(modalId);
-    
-    modal.style.display = 'block';
-}
 
-function closeModal(modalId) {
-    var modal = document.getElementById(modalId);
-    
-    modal.style.display = 'none';
-}
-
-window.onclick = function(event) {
-    if(event.target == modal) {
-    modal.style.display = "none";
-    }
-}
-
-</script>

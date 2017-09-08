@@ -68,14 +68,15 @@
 
                  <ul class="nav" id="side-menu">
                     
-                    <li>
-                        <a href="<?php echo base_url(); ?>dashboard/index" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                   <li>
+                        <a href="<?php echo base_url(); ?>user/index" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url();?>branches/index" ><i class="fa fa-sitemap fa-fw"></i> Branches</a>
+                        <a href="<?php echo base_url();?>master/branch_index" ><i class="fa fa-sitemap fa-fw"></i> Branches</a>
                     </li>
+               
                      <li>
-                        <a href="<?php echo base_url();?>login/get_users"  class="active"><i class="fa fa-users fa-fw"></i> Accounts</a>
+                        <a href="<?php echo base_url();?>master/account_index"><i class="fa fa-users fa-fw"></i> Accounts</a>
                     </li>
                 </ul>
 
@@ -92,7 +93,7 @@
                             <h2 class="page-header">Accounts</h2>
                         </div>
                     </div>
-                                 <form  action="<?php echo base_url('login/add/') ?>" method="post" class="form-horizontal">
+                                 <form  action="<?php echo base_url('master/account_add/') ?>" method="post" class="form-horizontal">
                                                            <div class="border">
                                                                <h3 class="modal-header">Add User Form</h3>
                                                            </div>
@@ -169,23 +170,3 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url(); ?>/assets/js/startmin.js"></script>
-<script >
-function showModal(modalId) {
-    var modal = document.getElementById(modalId);
-    
-    modal.style.display = 'block';
-}
-
-function closeModal(modalId) {
-    var modal = document.getElementById(modalId);
-    
-    modal.style.display = 'none';
-}
-
-window.onclick = function(event) {
-    if(event.target == modal) {
-    modal.style.display = "none";
-    }
-}
-
-</script>  

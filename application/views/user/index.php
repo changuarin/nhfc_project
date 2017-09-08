@@ -49,7 +49,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo base_url();?>login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="<?php echo base_url();?>user/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>
@@ -62,13 +62,14 @@
                  <ul class="nav" id="side-menu">
                     
                     <li>
-                        <a href="<?php echo base_url(); ?>dashboard/index" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="<?php echo base_url(); ?>user/index" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url();?>branches/index" ><i class="fa fa-sitemap fa-fw"></i> Branches</a>
+                        <a href="<?php echo base_url();?>master/branch_index" ><i class="fa fa-sitemap fa-fw"></i> Branches</a>
                     </li>
+               
                      <li>
-                        <a href="<?php echo base_url();?>login/get_users"><i class="fa fa-users fa-fw"></i> Accounts</a>
+                        <a href="<?php echo base_url();?>master/account_index"><i class="fa fa-users fa-fw"></i> Accounts</a>
                     </li>
                 </ul>
 

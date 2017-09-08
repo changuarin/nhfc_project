@@ -26,6 +26,9 @@
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url(); ?>/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="<?php echo base_url(); ?>/assets/css/jquery-ui.css" rel="stylesheet" type="text/css">
+    
     
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap-theme.min.css') ?>">
     <style type="text/css">
@@ -76,53 +79,76 @@
 
      .right_row
     {
-        margin-left: 580px;
-        margin-top: -500px;
+        float: right;
+        margin-right: 40px;
+        margin-top: -350px;
        
     }
 
     .right_row1
     {
-        margin-left: 580px;
-        margin-top: -460px;
+        float: right;
+        margin-right: 56px;
+        margin-top: -305px;
        
     }
 
     .right_row2
     {
-        margin-left: 580px;
-        margin-top: -420px;
+        float: right;
+        margin-right: 85px;
+        margin-top: -260px;
        
     }
 
     .right_row3
     {
-        margin-left: 580px;
-        margin-top: -380px;
+        float: right;
+        margin-right: 85px;
+        margin-top: -220px;
        
     }
 
      .right_row4
     {
-        margin-left: 580px;
-        margin-top: -340px;
+        float: right;
+        margin-right: 80px;
+        margin-top: -180px;
        
     }
 
-     .right_row5
+      .right_row5
     {
-        margin-left: 560px;
-        margin-top: -180px;
+        float: right;
+        margin-right: 77px;
+        margin-top: -125px;
+       
+    }
+
+      .right_row6
+    {
+        float: right;
+        margin-right: 52px;
+        margin-top: -80px;
+       
+    }
+
+     .image_location
+    {
+        float: right;
+        margin-right: 100px;
+        margin-top: -550px;
          
     }
 
-     .right_row6
+     .upload_img
     {
-        margin-left: 560px;
-        margin-top: -160px;
-         
-    }
-      
+        border: 3px solid #ccc;
+        box-shadow: 10px 10px 5px #888888;
+        width: 150px;
+        height: 150px;
+    } 
+
     form
     {
         margin-top: 50px;
@@ -132,17 +158,11 @@
     {
         margin-left: 500px;
         padding-bottom: 70px;
-        padding-top: 20px;
+        
     }
 
     </style>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 

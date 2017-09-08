@@ -5,7 +5,7 @@ class User_model extends CI_Model {
 
 	/** Login Function **/
 
-	public function login_user($username,$password)
+	public function login($username,$password)
 	{
 		$enc_password = md5($password);
 
@@ -23,48 +23,6 @@ class User_model extends CI_Model {
 	
 	}
 
-	public function get_users()
-	{
-		$query = $this->db->get('users');
-
-		return $query->result();
-
-
-	}
-
-	public function add_user($data)
-	{
-		$query = $this->db->insert('users', $data);
-
-		return $query;
-	}
-
-	public function get_user($id)
-	{
-		$this->db->where('id', $id);
-
-		$query = $this->db->get('users');
-
-		return $query->row();
-	}
-
-	public function edit_user($id, $data)
-	{
-
-		$this->db->where('id', $id);
-
-		$query = $this->db->update('users', $data);
-
-		return $query;
-	}	
-
-	public function delete_user($id)
-	{
-		$this->db->where('id', $id);
-
-		$query = $this->db->delete('users');
-
-		return $query;
-	}
+	
 
 }

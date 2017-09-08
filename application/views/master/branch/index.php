@@ -1,4 +1,3 @@
-
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -18,28 +17,7 @@
 
         <!-- Top Navigation: Right Menu -->
         <ul class="nav navbar-right navbar-top-links">
-            <li class="dropdown navbar-inverse">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu dropdown-alerts">
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-comment fa-fw"></i> New Comment
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a class="text-center" href="#">
-                            <strong>See All Alerts</strong>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+           
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
@@ -62,13 +40,16 @@
 
                 <ul class="nav" id="side-menu">
                     
-                    <li>
-                        <a href="<?php echo base_url(); ?>dashboard/landingpage" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                   <li>
+                        <a href="<?php echo base_url(); ?>user/index" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url();?>branches/all_branch" class="active"><i class="fa fa-sitemap fa-fw"></i> Branches</a>
+                        <a href="<?php echo base_url();?>master/branch_index" ><i class="fa fa-sitemap fa-fw"></i> Branches</a>
                     </li>
-                     
+               
+                     <li>
+                        <a href="<?php echo base_url();?>master/account_index"><i class="fa fa-users fa-fw"></i> Accounts</a>
+                    </li>
                 </ul>
 
             </div>
@@ -80,7 +61,7 @@
     <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="page-header">Xavi Overview</h2>
+                            <h2 class="page-header">Branches</h2>
                         </div>
                     </div>
 
@@ -98,7 +79,8 @@
                         <div class="col-lg-12">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4>List of Branches</h4>
+                                        <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>master/branch_add">Add</a>
+                                       
                                     </div>
                                 
                                     <div class="panel-body">
@@ -106,7 +88,7 @@
                                             <table class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                   
+                                                    
                                                     <th>Branch</th>
                                                     <th>Company</th>
                                                     <th>Officer In Charge</th>
@@ -118,26 +100,25 @@
                                                 <?php if(isset($branches)) : ?>
                                                     <?php foreach($branches as $branch) : ?>
                                                     <tr>
-                                                      
+                                                       
                                                         <td><?php echo $branch->name; ?></td>
                                                         <td><?php echo $branch->company; ?></td>
                                                         <td><?php echo $branch->office_in_charge; ?></td>
                                                         <td><?php echo $branch->telephone_no; ?></td>
                                                         
                                                         <td>
-                                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>branches/all_modules">Activate</a>
-                                                           
+                                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>master/dashboard">Activate</a>
+                                                            <a class="btn btn-info" href="<?php echo base_url(); ?>master/branch_edit/<?php echo $branch->id; ?>">Edit</a>
+                                                            <a class="btn btn-danger btn-sm delete-btn" href="<?php echo base_url(); ?>master/branch_delete/<?php echo $branch->id; ?>">Delete</a>
                                                             
                                                         </td>
-
                                                     </tr>
-                                                  
                                                     <?php endforeach; ?>
                                                 <?php endif; ?>
                                             </table>
-                                             <div class="margin3">
+                                            <div class="margin3">
                                                 <?php echo $this->pagination->create_links(); ?>
-                                            </div>  
+                                            </div>     
                                         </div>
                                     </div>      
                                 </div>
@@ -161,23 +142,3 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url(); ?>/assets/js/startmin.js"></script>
-<script >
-function showModal(modalId) {
-    var modal = document.getElementById(modalId);
-    
-    modal.style.display = 'block';
-}
-
-function closeModal(modalId) {
-    var modal = document.getElementById(modalId);
-    
-    modal.style.display = 'none';
-}
-
-window.onclick = function(event) {
-    if(event.target == modal) {
-    modal.style.display = "none";
-    }
-}
-
-</script>

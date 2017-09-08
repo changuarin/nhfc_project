@@ -38,7 +38,7 @@
 </hgroup>
  
 
-<?php echo form_open('login/login_user'); ?>
+<?php echo form_open('user/login'); ?>
   <div class="validation">
      <?php if($this->session->flashdata('login_fail')) : ?>
         <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('login_fail'); ?></p>
