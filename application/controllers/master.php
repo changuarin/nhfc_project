@@ -5,24 +5,37 @@ class Master extends CI_Controller
 {
 	//------ ! ACCOUNT CONTROLLER ! ---//
 
+public function __construct()
+	{
+		parent::__construct();
+		
+		if($this->session->userdata('access') == 'sales' || $this->session->userdata('access') == 'accounting' || $this->session->userdata('access') == 'collection')
+		{
+			$this->session->set_flashdata('no_access', 'Sorry, you are not logged in');
+			
+			redirect('user/account');
+		}
+		
+	}
+
 	public function account_index()
 	{
 		 $this->load->library('pagination');
 
 	 	 $total_rows = $this->db->count_all('users');
-	 	 $limit = 2;
+	 	 $limit = 4;
 
 	 	 $start = $this->uri->segment(3);
 
 	 	 $this->db->limit($limit, $start);
-	     $query = $this->db->get('users');
-	     $data['users'] = $query->result();
+	   $query = $this->db->get('users');
+	   $data['users'] = $query->result();
 
-	     $config['base_url'] = 'http://localhost/nhfc/index.php/master/account_index/';
-	     $config['total_rows'] = $total_rows;
-	     $config['per_page'] = $limit;
+	   $config['base_url'] = 'http://localhost/nhfc/index.php/master/account_index/';
+	   $config['total_rows'] = $total_rows;
+	   $config['per_page'] = $limit;
 
-	     $config['full_tag_open'] = "<ul class='pagination'>";
+	   $config['full_tag_open'] = "<ul class='pagination'>";
 		 $config['full_tag_close'] ="</ul>";
 		 $config['num_tag_open'] = '<li>';
 		 $config['num_tag_close'] = '</li>';
@@ -213,10 +226,10 @@ class Master extends CI_Controller
 		{
 			$data = array
 			(
-				'company'     		=>$this->input->post('company'),
-				'name' 		 		=>$this->input->post('name'),
+				'company'     			=>$this->input->post('company'),
+				'name' 		 					=>$this->input->post('name'),
 				'office_in_charge'  =>$this->input->post('office_in_charge'),	
-				'address'    		=>$this->input->post('address'),
+				'address'    				=>$this->input->post('address'),
 				'mobile_no'         =>$this->input->post('mobile_no'),
 				'telephone_no'      =>$this->input->post('telephone_no'),
 				'fax_no'            =>$this->input->post('fax_no'),
@@ -248,56 +261,170 @@ class Master extends CI_Controller
 
 	//------ ! CLIENT CONTROLLER ! ---//
 
+	public function client_index()
+	{
+		//print_r($this->session->all_userdata());
+
+		$this->load->library('pagination');
+
+ 		$total_rows = $this->db->count_all('clients');
+ 		$limit = 3;
+
+ 		$start = $this->uri->segment(3);
+ 	 
+ 		$this->db->limit($limit, $start);
+  	$query = $this->db->get('clients');
+  	$data['clients'] = $query->result();
+
+	  $config['base_url'] = 'http://localhost/nhfc/index.php/master/client_index/';
+	  $config['total_rows'] = $total_rows;
+	  $config['per_page'] = $limit;
+
+	  $config['full_tag_open'] = "<ul class='pagination'>";
+		$config['full_tag_close'] ="</ul>";
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+		$config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+		$config['next_tag_open'] = "<li>";
+		$config['next_tagl_close'] = "</li>";
+		$config['prev_tag_open'] = "<li>";
+		$config['prev_tagl_close'] = "</li>";
+		$config['first_tag_open'] = "<li>";
+		$config['first_tagl_close'] = "</li>";
+		$config['last_tag_open'] = "<li>";
+		$config['last_tagl_close'] = "</li>";
+
+  	$this->pagination->initialize($config);
+
+    $data['clients2'] = $this->master_model->get_clients();
+    $data['main_content'] = 'master/client/index';
+		$this->load->view('layouts/main', $data);
+	}
 
 	public function client_add()
 	{
 
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
 
-		if($this->form_validation->run() == FALSE)
+		$config = array(
+			'upload_path' => 'assets/upload/',
+			'allowed_types' => 'jpg|jpeg|png',
+			'max_size' => 0,
+			//'filename' => url_title($this->input->post('file'))
+			);
+		$this->load->library('upload', $config);
+
+		if($this->form_validation->run() == FALSE )
 		{
 			$data['main_content'] = 'master/client/add';
-			$data['branches'] = $this->branch_model->get_branches();
+			$data['branches'] = $this->master_model->get_branches();
 			$data['payments'] = $this->master_model->get_payment_source();
 			$data['pensions'] = $this->master_model->get_pension_type();
 			$this->session->set_flashdata('error.msg', 'Required All Fields');
 			$this->load->view('layouts/main', $data);
+
 		}
 		else
 		{
+			$this->upload->do_upload('file');
 			$birthdate = date('Y-m-d', strtotime($this->input->post('birthdate')));
-
 			$data = array
 			(
-				'first_name' 		=> $this->input->post('first_name'),
-				'middle_name' 		=> $this->input->post('middle_name'),
-				'last_name' 		=> $this->input->post('last_name'),
-				'birthdate' 		=> $birthdate,
-				'gender' 			=> $this->input->post('gender'),
-				'civil_status' 		=> $this->input->post('civil_status'),
-				'address' 			=> $this->input->post('address'),
-				'telephone_no'	 	=> $this->input->post('telephone_no'),
-				'mobile_no' 		=> $this->input->post('mobile_no'),
-				'res_cert_no' 		=> $this->input->post('res_cert_no'),
-				'pension_amount' 	=> $this->input->post('pension_amount'),
+				'picture'  					=> $this->upload->file_name,
+				'first_name' 				=> $this->input->post('first_name'),
+				'middle_name' 			=> $this->input->post('middle_name'),
+				'last_name' 				=> $this->input->post('last_name'),
+				'birthdate' 				=> $birthdate,
+				'gender' 						=> $this->input->post('gender'),
+				'civil_status' 			=> $this->input->post('civil_status'),
+				'address' 					=> $this->input->post('address'),
+				'telephone_no'		 	=> $this->input->post('telephone_no'),
+				'mobile_no' 				=> $this->input->post('mobile_no'),
+				'res_cert_no' 			=> $this->input->post('res_cert_no'),
+				'pension_amount' 		=> $this->input->post('pension_amount'),
+				'bank_branch' 			=> $this->input->post('bank_branch'),
+				'payment_type_id'   => $this->input->post('payment_type'),
+				'withdrawal_day'    => $this->input->post('withdrawal_day'),
 				'payment_source_id' => $this->input->post('payment_source'),
 				'pension_type_id' 	=> $this->input->post('pension_type'),
-				'is_active' 		=> $this->input->post('is_active'),
-				'branch_id' 		=> $this->input->post('branch_id')
+				'group'             => $this->input->post('group'),
+				'is_active' 				=> $this->input->post('is_active'),
+				'branch_id' 				=> $this->input->post('branch_id')
 			);
+			
 
 			if($this->master_model->client_add($data))
 			{
-				$this->session->set_flashdata('added_client', 'Client Successfully Added!');
+				$this->session->set_flashdata('client_added', 'Client Successfully Added!');
 
 				redirect('master/client_index');
 			}
 		}
 	}
 
-	public function dashboard()
+	public function client_delete($id)
 	{
-		$data['main_content'] = 'master/index';
-		$this->load->view('layouts/main', $data);
+		if($this->master_model->client_delete($id))
+		{
+			$this->session->set_flashdata('client_deleted', 'Client Successfully Deleted!');
+
+			redirect('master/client_index');
+		}
+
 	}
+
+	public function client_edit($id)
+	{
+		$this->form_validation->set_rules('first_name', 'First Name', 'required|trim|min_length[6]');
+
+		if($this->form_validation->run() == FALSE )
+		{
+			$data['branches'] = $this->master_model->get_branches();
+			$data['payments'] = $this->master_model->get_payment_source();
+			$data['pensions'] = $this->master_model->get_pension_type();
+			$data['client']   = $this->master_model->get_client($id);
+			
+			$data['main_content'] = 'master/client/edit';
+			
+			$this->load->view('layouts/main', $data);
+		}
+		else
+		{
+			
+			$birthdate = date('Y-m-d', strtotime($this->input->post('birthdate')));
+			$data = array
+				(
+					'first_name' 				=> $this->input->post('first_name'),
+					'middle_name' 			=> $this->input->post('middle_name'),
+					'last_name' 				=> $this->input->post('last_name'),
+					'birthdate' 				=> $birthdate,
+					'gender' 						=> $this->input->post('gender'),
+					'civil_status' 			=> $this->input->post('civil_status'),
+					'address' 					=> $this->input->post('address'),
+					'telephone_no'		 	=> $this->input->post('telephone_no'),
+					'mobile_no' 				=> $this->input->post('mobile_no'),
+					'res_cert_no' 			=> $this->input->post('res_cert_no'),
+					'pension_amount' 		=> $this->input->post('pension_amount'),
+					'bank_branch' 			=> $this->input->post('bank_branch'),
+					'payment_type_id'   => $this->input->post('payment_type'),
+					'withdrawal_day'    => $this->input->post('withdrawal_day'),
+					'payment_source_id' => $this->input->post('payment_source'),
+					'pension_type_id' 	=> $this->input->post('pension_type'),
+					'group'	            => $this->input->post('group'),
+					'is_active' 				=> $this->input->post('is_active'),
+					'branch_id' 				=> $this->input->post('branch_id')
+				);
+			
+			if($this->master_model->client_edit($id, $data))
+			{
+				$this->session->set_flashdata('client_updated', 'Client has been updated');
+				
+				redirect('master/client_index');
+			}
+		}
+	}
+	
+
+	
 }	

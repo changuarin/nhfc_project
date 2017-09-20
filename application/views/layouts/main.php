@@ -32,12 +32,7 @@
     
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap-theme.min.css') ?>">
     <style type="text/css">
-          .modal-content
-    {
-        width: 50%;
-        margin-left: 350px;
-       
-    }
+ 
     select { 
         margin-left: 0px;
         margin-top: 10px;
@@ -80,7 +75,7 @@
      .right_row
     {
         float: right;
-        margin-right: 40px;
+        margin-right: 29px;
         margin-top: -350px;
        
     }
@@ -137,7 +132,7 @@
     {
         float: right;
         margin-right: 100px;
-        margin-top: -550px;
+        margin-top: -690px;
          
     }
 
@@ -160,20 +155,285 @@
         padding-bottom: 70px;
         
     }
+     .border
+    {
+        margin-left:300px;
+
+    }
+    option
+     {
+        margin-left: 10px;
+     }
+    .margin
+    {
+        margin-left: 20px;
+    } 
 
     </style>
 
 </head>
 <body>
+<div id="wrapper">
 
- <?php
-  
-    $this->load->view($main_content);
-    
-  ?>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Xavi</a>
+        </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>a
+        <!-- Top Navigation: Right Menu -->
+        <ul class="nav navbar-right navbar-top-links">
+            <li class="dropdown navbar-inverse">
+                <?php if($this->session->userdata('branch') !== NULL) : ?>
+                    <a href=" <?php echo base_url(); ?>user/account">Change Account</a>
+                <?php endif; ?>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> <?php echo 'User' ?> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="<?php echo base_url();?>user/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                 <ul class="nav" id="side-menu">
+                    <!-- DASHBOARD ACCOUNT -->
+                    <?php //print_r($this->session->all_userdata()); ?>
+                    <?php if($this->session->userdata('access') == 'admin' ) : ?>
+                        <li>
+                            <a href="<?php echo base_url(); ?>master/branch_index" ><i class="fa fa-sitemap fa-fw"></i> Branches</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>master/account_index"><i class="fa fa-users fa-fw"></i> Accounts</a>
+                        </li>
+                    <?php endif; ?>
+                    <!-- DASHBOARD OF BRANCHES -->
+                    <?php if($this->session->userdata('branch') !== NULL) : ?>
+                        <li>
+                            <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#" ><i class="fa fa-folder fa-fw"></i> Master<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>master/client_index">Client</a>
+                                </li>
+                                <li>
+                                    <a href="#">Verification</a>
+                                </li>
+                                <li>
+                                    <a href="#">Co-Maker</a>
+                                </li>
+                                <li>
+                                    <a href="#">Agent</a>
+                                </li>
+                                <li>
+                                    <a href="#">Agent Ref. No.</a>
+                                </li>
+                                <li>
+                                    <a href="#">Commission</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Request</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Approval</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" ><i class="fa fa-folder fa-fw"></i> Sales<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Client</a>
+                                </li>
+                                <li>
+                                    <a href="#">Verification</a>
+                                </li>
+                                <li>
+                                    <a href="#">Co-Maker</a>
+                                </li>
+                                <li>
+                                    <a href="#">Agent</a>
+                                </li>
+                                <li>
+                                    <a href="#">Agent Ref. No.</a>
+                                </li>
+                                <li>
+                                    <a href="#">Commission</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Request</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Approval</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" ><i class="fa fa-folder fa-fw"></i> Collection<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Client</a>
+                                </li>
+                                <li>
+                                    <a href="#">Verification</a>
+                                </li>
+                                <li>
+                                    <a href="#">Co-Maker</a>
+                                </li>
+                                 <li>
+                                    <a href="#">Agent</a>
+                                </li>
+                                <li>
+                                    <a href="#">Agent Ref. No.</a>
+                                </li>
+                                <li>
+                                    <a href="#">Commission</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Request</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Approval</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" ><i class="fa fa-folder fa-fw"></i> Accounts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Client</a>
+                                </li>
+                                <li>
+                                    <a href="#">Verification</a>
+                                </li>
+                                <li>
+                                    <a href="#">Co-Maker</a>
+                                </li>
+                                 <li>
+                                    <a href="#">Agent</a>
+                                </li>
+                                <li>
+                                    <a href="#">Agent Ref. No.</a>
+                                </li>
+                                <li>
+                                    <a href="#">Commission</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Request</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Approval</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" ><i class="fa fa-folder fa-fw"></i> Entries<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Client</a>
+                                </li>
+                                <li>
+                                    <a href="#">Verification</a>
+                                </li>
+                                <li>
+                                    <a href="#">Co-Maker</a>
+                                </li>
+                                <li>
+                                    <a href="#">Agent</a>
+                                </li>
+                                <li>
+                                    <a href="#">Agent Ref. No.</a>
+                                </li>
+                                <li>
+                                    <a href="#">Commission</a>
+                                </li>
+                                 <li>
+                                    <a href="#">Fund Transfer Request</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Approval</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" ><i class="fa fa-folder fa-fw"></i> Reports<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Client</a>
+                                </li>
+                                <li>
+                                    <a href="#">Verification</a>
+                                </li>
+                                <li>
+                                    <a href="#">Co-Maker</a>
+                                </li>
+                                <li>
+                                    <a href="#">Agent</a>
+                                </li>
+                                <li>
+                                    <a href="#">Agent Ref. No.</a>
+                                </li>
+                                <li>
+                                    <a href="#">Commission</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Request</a>
+                                </li>
+                                <li>
+                                    <a href="#">Fund Transfer Approval</a>
+                                </li>
+                                <li>
+                                    <a href="#">Commission</a>
+                                </li>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <?php $this->load->view($main_content); ?>     
+        </div>
+    </div>
+
+</div>
 
 
+<!-- jQuery -->
+<script src="<?php echo base_url(); ?>/assets/js/jquery.min.js"></script>
 
+<!-- Bootstrap Core JavaScript -->
+<script src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="<?php echo base_url(); ?>/assets/js/metisMenu.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+<script src="<?php echo base_url(); ?>/assets/js/startmin.js"></script>
 
 </body>
 </html>

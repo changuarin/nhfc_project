@@ -1,540 +1,179 @@
-<div id="wrapper">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Xavi</a>
-        </div>
-
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-
-       
-
-        <!-- Top Navigation: Right Menu -->
-        <ul class="nav navbar-right navbar-top-links">
-            <li class="dropdown navbar-inverse">
-                <a href="<?php echo base_url(); ?>branches/index">
-                    Change Branch 
-                </a>
-                
-            </li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <?php echo 'User'; ?> <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="<?php echo base_url();?>login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <!-- Sidebar -->
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-
-                 <ul class="nav" id="side-menu">
-
-                    <li>
-                        <a href="<?php echo base_url(); ?>dashboard/index" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="active"><i class="fa fa-folder fa-fw"></i> Master<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Client</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Verification</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Co-Maker</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent Ref. No.</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Commission</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Fund Transfer Request</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fund Transfer Approval</a>
-                                </li>
-                               
-                            </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" ><i class="fa fa-folder fa-fw"></i> Sales<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Client</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Verification</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Co-Maker</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent Ref. No.</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Commission</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Fund Transfer Request</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fund Transfer Approval</a>
-                                </li>
-                               
-                            </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" ><i class="fa fa-folder fa-fw"></i> Collection<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Client</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Verification</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Co-Maker</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent Ref. No.</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Commission</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Fund Transfer Request</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fund Transfer Approval</a>
-                                </li>
-                               
-                            </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" ><i class="fa fa-folder fa-fw"></i> Accounts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Client</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Verification</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Co-Maker</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent Ref. No.</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Commission</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Fund Transfer Request</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fund Transfer Approval</a>
-                                </li>
-                               
-                            </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" ><i class="fa fa-folder fa-fw"></i> Entries<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Client</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Verification</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Co-Maker</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent Ref. No.</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Commission</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Fund Transfer Request</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fund Transfer Approval</a>
-                                </li>
-                               
-                            </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" ><i class="fa fa-folder fa-fw"></i> Reports<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Client</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Verification</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Co-Maker</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Agent Ref. No.</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Commission</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Fund Transfer Request</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fund Transfer Approval</a>
-                                </li>
-                                 <li>
-                                    <a href="#">Commission</a>
-                                </li>
-
-                               
-                            </ul>
-                    </li>
-                    
-                </ul>
-
-            </div>
-        </div>
-    </nav>
 <style type="text/css">
-    
-      
+	.modal-content
+	{
+	    width: 800px;
+	    margin-left: 290px;
+	    margin-top: 50px;
+	}
+	.modal-title
+	{
+	    padding-bottom: 50px;
+	}
+	.form-group
+	{
+	    font-weight: 2em;
 
+	}
+	.modal
+	{
+	    overflow-y: scroll;
+	}
+
+  img
+  {
+    width: 150px;
+    height: 150px;
+  }
+  .modal_left
+  {
+    margin-left: 10px;
+    margin-top: -20px;
+  }
+   .modal_right
+  {
+    float: right;
+    margin-right: 120px;
+    margin-top: -220px;
+  }
+  .modal_image
+  {
+    border: 3px solid #ccc;
+    box-shadow: 10px 10px 5px #888888;
+    width: 150px;
+    height: 150px;
+    float: right;
+    margin-right: -150px;
+    margin-top: -400px;
+  }
 </style>
-    <!-- Page Content -->
-    <div id="page-wrapper">
-        <div class="container-fluid">
 
-         
-            <form  action="<?php echo base_url('master/add_client/') ?>" method="post" class="form-horizontal">
-
-            <?php if($this->session->flashdata('added_client')) : ?>
-                          <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('added_client'); ?></p>
-            <?php endif; ?>
-                <div class="row">    
-                    <div class="col-sm-17">
-                        <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                            <h5 class="panel-title">Client Information Form</h5>
-                                </div>
-                            <div class="row1">
-                                <div class="panel-body">
-                                    
-                                    <div class="form-group" >
-                                         <label class="control-label col-md-2">First Name: </label>
-                                                <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="first_name"  >    
-                                                </div>                             
-                                    </div> 
-
-                                    <div class="form-group" >
-                                         <label class="control-label col-md-2">Middle Name: </label>
-                                                <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="middle_name"  >    
-                                                </div>                             
-                                    </div> 
-
-                                    <div class="form-group" >
-                                         <label class="control-label col-md-2">Last Name: </label>
-                                                <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="last_name"  >    
-                                                </div>                             
-                                    </div> 
-
-                                    <div class="form-group" >
-                                         <label class="control-label col-md-2">BirthDate: </label>
-                                                <div class="col-md-1">
-                                                    <input class="form-control input-sm datepicker"   type="text" name="birthdate" placeholder="MM/DD/YYYY"  >    
-                                                </div>                             
-                                    </div>
-
-                                    <div class="row2">
-
-                                        <div class="form-group">
-                                              <label class="control-label col-md-2">Gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                                    <select class="form-control input-sm" class="qw"  name="gender">
-                                                        <option value="male">-SELECT-</option>
-                                                        <option value="male">Male</option>
-                                                        <option value="female">Female</option>
-                                                    </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                              <label class="control-label col-md-2">Civil Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                                    <select class="form-control input-sm" class="qw"  name="civil_status">
-                                                        <option value="male">-SELECT-</option>
-                                                        <option value="single">Single</option>
-                                                        <option value="married">Married</option>
-                                                        <option value="separated">Separated</option>
-                                                        <option value="widon">Widow</option>
-                                                    </select>
-                                        </div>
-
-
-                                        <div class="form-group">
-                                             <label class="control-label col-md-2">Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                                    <textarea class="form-control" rows="2" name="address"></textarea>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-group" >
-                                         <label class="control-label col-md-2">Telephone No: </label>
-                                                <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="telephone_no"  >    
-                                                </div>                             
-                                    </div>
-
-                                    <div class="form-group" >
-                                         <label class="control-label col-md-2">Cellphone No: </label>
-                                                <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="mobile_no"  >    
-                                                </div>                             
-                                    </div>
-
-                                    <div class="form-group" >
-                                            <label class="control-label col-md-2">Res.Cert No: </label>
-                                                <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="res_cert_no">    
-                                                </div>                             
-                                    </div>
-
-                                   
-
-                                    <div class="form-group" >
-                                                    <label class="control-label col-md-2">Amount: </label>
-                                                <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="pension_amount">    
-                                                </div>                             
-                                    </div>
-
-                                    <div class="image_location">            
-
-                                        <div class="form-group" >
-                                                <div class="upload_img">
-                                                <img src="<?php echo base_url(); ?>assets/img/senior.png" width="150px;" height="150px;">
-                                                </div>
-                                                <br>
-                                                 <input type="file" name="picture" size="20" multiple="true" />
-
-                                                
-                                                </div>                             
-                                    </div>
-
-                                    <div class="right_row">
-                                           
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2">Payment Type:</label>
-                                                    <select class="form-control input-sm"   name="payment_source">
-                                                        <option value="0">-SELECT-</option> 
-                                                        <?php if(isset($payments)) : ?>
-                                                            <?php foreach($payments as $payment) : ?>  
-                                                                <option value="<?php echo $payment->id; ?>"><?php echo $payment->name; ?></option>
-                                                            <?php endforeach; ?>
-                                                        <?php endif; ?>
-                                                    </select>
-                                                </div>
-                                    </div>
-
-                                    <div class="right_row1">            
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2">Client Type:</label>
-                                                    <select class="form-control input-sm"  name="pension_type">
-                                                        <option value="0">-SELECT-</option> 
-                                                        <?php if(isset($pensions)) : ?>
-                                                            <?php foreach($pensions as $pension) : ?>  
-                                                                <option value="<?php echo $pension->id; ?>"><?php echo $pension->name; ?></option>
-                                                            <?php endforeach; ?>
-                                                        <?php endif; ?>
-                                                    </select>
-                                                </div>
-                                           
-                                    </div>
-
-                                    <div class="right_row2">            
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2">Status:</label>
-                                                    <select class="form-control input-sm"  name="is_active">
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Inactive</option>
-                                                    </select>
-                                                </div>
-                                           
-                                    </div>
-
-                                    <div class="right_row3">            
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2">Group:</label>
-                                                    <select class="form-control input-sm"  name="group">
-                                                        <option value="male">-SELECT-</option>
-                                                        <option value="new">New</option>
-                                                        <option value="old">Old</option>
-                                                    </select>
-                                                </div>
-                                           
-                                    </div>
-
-                                    <div class="right_row4">            
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2">Branch:</label>
-                                                    <select class="form-control input-sm"  name="branch_id">
-                                                    <option value="0">-SELECT-</option> 
-                                                <?php if(isset($branches)) : ?>
-                                                    <?php foreach($branches as $branch) : ?>  
-                                                        <option value="<?php echo $branch->id; ?>"><?php echo $branch->name; ?></option>
-                                                    <?php endforeach; ?>
-                                                <?php endif; ?>
-                                                    </select>
-                                                </div>
-                                           
-                                    </div>
-
-                                    <div class="right_row5">            
-
-                                        <div class="form-group" >
-                                                    <label class="control-label col-md-2">Agent: </label>
-                                                <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="agent">    
-                                                </div>                             
-                                        </div>
-                                           
-                                    </div>
-
-                                    <div class="right_row6">            
-
-                                        <div class="form-group" >
-                                                    <label class="control-label col-md-2">Sub-Agent: </label>
-                                                <div class="col-md-1">
-                                                    <input class="form-control input-sm"  type="text" name="sub_agent">    
-                                                </div>                             
-                                        </div>
-                                           
-                                    </div>
-
-                                    <div class="btn-size1">
-                                        <button type="submit" class="btn btn-primary col-md-2">Submit</button>
-                                    </div> 
-
-                            
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>              
-           <!-- <div class="row1">
-                <div class="form-group" >
-                    <label class="control-label col-md-2">Client Code: </label>
-                        <div class="col-md-1">
-                            <input class="form-control input-sm"  type="text" name="name"  >    
-                        </div>                             
-                </div>
-
-                <div class="form-group" >
-                    <label class="control-label col-md-2">First Name: </label>
-                        <div class="col-md-1">
-                            <input class="form-control input-sm"  type="text" name="name"  >    
-                        </div>                             
-                </div>
-                     
-                <div class="form-group" >
-                    <label class="control-label col-md-2">Middle Name: </label>
-                        <div class="col-md-1">
-                            <input class="form-control input-sm"  type="text" name="name"  >    
-                        </div>                             
-                </div>
-
-                <div class="form-group" >
-                    <label class="control-label col-md-2">Last Name: </label>
-                        <div class="col-md-1">
-                            <input class="form-control input-sm"  type="text" name="name"  >    
-                        </div>                             
-                </div>
-            </div>  
-            -->   
- 
-        
-            <!-- ... Your content goes here ... -->
-
-        </div>
-    </div>
-
+<div class="row">
+  <div class="col-lg-12">
+      <h2 class="page-header">Client </h2>
+  </div>
 </div>
 
+<?php if($this->session->flashdata('client_added')) : ?>
+  <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('client_added'); ?></p>
+<?php endif; ?>
+<?php if($this->session->flashdata('client_updated')) : ?>
+ <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('client_updated'); ?></p>
+<?php endif; ?>
+<?php if($this->session->flashdata('client_deleted')) : ?>
+  <p class="alert alert-dismissable alert-danger"><?php echo $this->session->flashdata('client_deleted'); ?></p>
+<?php endif; ?>  
 
-<!-- jQuery -->
-<script src="<?php echo base_url(); ?>/assets/js/jquery.min.js"></script>
+  <!-- TABLE OF BRANCHES -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>master/client_add">Add</a>
+      </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+	              	<thead>
+	                  <tr>
+	                      <th>First Name</th>
+	                      <th>Middle Name</th>
+	                      <th>Last Name</th>
+	                      <th>Pension Amount No.</th>
+	                      <th>Action</th>
+	                  </tr>
+	               	</thead>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
+	                <?php if(isset($clients)) : ?>
+	                    <?php foreach($clients as $client) : ?>
+		                    <tr>
+		                        <td><?php echo $client->first_name; ?></td>
+		                        <td><?php echo $client->middle_name; ?></td>
+		                        <td><?php echo $client->last_name; ?></td>
+		                        <td><?php echo $client->bank_branch; ?></td>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="<?php echo base_url(); ?>/assets/js/metisMenu.min.js"></script>
+		                        <td>
+		                         <input onclick="showModal('myModal<?php echo $client->id; ?>')" class="btn btn-info" type="button" value="View">
+		                            <a class="btn btn-info" href="<?php echo base_url(); ?>master/client_edit/<?php echo $client->id; ?>">Edit</a>
+		                            <a class="btn btn-danger btn-sm delete-btn"  onclick="return confirm(' you want to delete?');" href="<?php echo base_url(); ?>master/client_delete/<?php echo $client->id; ?>">Delete</a>
+		                        </td>
+		                    </tr>
+	                    <?php endforeach; ?>
+	                <?php endif; ?>
+                </table>
+                <div class="margin3">
+                    <?php echo $this->pagination->create_links(); ?>
+                </div>     
+            </div>
+        </div>      
+    </div>
+  </div>
+</div>
 
-<!-- Custom Theme JavaScript -->
-<script src="<?php echo base_url(); ?>/assets/js/startmin.js"></script>
+<?php if(isset($clients2)) : ?>
+    <?php foreach($clients2 as $client) : ?>
 
+        <div id="myModal<?php echo $client->id; ?>" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-body">
+                         <span onclick="closeModal('myModal<?php echo $client->id; ?>')" class="close">&times;</span>
+                        <h3 class="modal-title">Client Information</h3>
+                        <div class="form-group">
+                          <div class="modal_left">
+                            <p> <label>First Name: </label> <?php echo $client->first_name; ?> </p>
+                            <p> <label>Middle Name:</label> <?php echo $client->middle_name; ?> </p>
+                            <p> <label>Last Name: </label> <?php echo $client->last_name; ?> </p>
+                            <p> <label>Birth Date: </label>   <?php echo $client->birthdate; ?> </p>
+                            <p> <label>Gender: </label>   <?php echo $client->gender; ?> </p>
+                            <p> <label>Civil Status: </label>   <?php echo $client->civil_status; ?> </p>
+                            <p> <label>Mobile No: </label>   <?php echo $client->mobile_no; ?> </p>
+                            <p> <label>Address: </label>   <?php echo $client->address; ?> </p>
+                            <p> <label>Res_cert_no: </label>   <?php echo $client->res_cert_no; ?> </p>
+                            <p> <label>Pension Amount: </label>   <?php echo $client->pension_amount; ?> </p>
+                          </div>  
+                          <div class="modal_right">
+                            <p> <label>Withdrawal Day: </label>   <?php echo $client->withdrawal_day; ?> </p>
+                            <p> <label>Payment Type: </label>   <?php echo $client->payment_type_name; ?> </p>
+                            <p> <label>Branch:</label> <?php echo $client->branch_name; ?> </p>
+                            <p> <label>Payment Source: </label> <?php echo $client->payment_source_name; ?> </p>
+                            <p> <label>Pension Type: </label>   <?php echo $client->pension_type_name; ?> </p>
+                             <p> <label>Group: </label>   <?php echo $client->group; ?> </p>
+                              <p> <label>Status: </label>   <?php echo $client->is_active; ?> </p>
+                          </div>  
+                         
+                          <div class="modal_image">  
+                            <?php echo img('assets/upload/'.$client->picture); ?>
+                          </div>    
+                            
+                        </div>
 
-<script src="<?php echo base_url(); ?>/assets/js/jquery-ui.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".datepicker").datepicker({
-            changeMonth: true,
-            changeYear: true
-        });
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>  
+<?php endif; ?>
 
-    });
-</script>
+<script>
+function showModal(modalId) {
+    var modal = document.getElementById(modalId);
+
+    modal.style.display = 'block';
+}
+
+function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+
+    modal.style.display = 'none';
+}
+
+/*
+window.onclick = function(event) {
+    if(event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+*/
+
+</script>                         
