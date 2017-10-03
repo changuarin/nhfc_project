@@ -160,16 +160,17 @@
 
                 <div class="form-group" >
                   <div class="upload_img">
-                 <style type="text/css">
-                   img
-                   {
-                    width: 150px;
-                    height: 150px;
-                   }
-                 </style>
+                     <style type="text/css">
+                       img
+                       {
+                        width: 150px;
+                        height: 150px;
+                       }
+                     </style>
                     <?php //echo img('assets/upload/'.$client->picture); ?>
-                    <!-- <img src="<?php echo img('assets/upload/'.$client->picture); ?>" width="150px;" height="150px;">  -->
+                    <!-- <img src="<?php //echo img('assets/upload/'.$client->picture); ?>" width="150px;" height="150px;">  -->
                   </div><br>
+                 
                       <?php echo form_upload('file'); ?>
                 </div>                             
               </div>

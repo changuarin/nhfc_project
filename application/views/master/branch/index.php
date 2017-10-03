@@ -17,9 +17,20 @@
 <div class="row">
 	<div class="col-lg-12">
   	<div class="panel panel-default">
+		  <div class="search">
+	  		<?php echo form_open('master/branch_index'); ?>
+         	<div class="input-group col-lg-5">
+        		<input type="text" class="form-control" placeholder="Search" name = "keyword"size="10px; ">
+	        	<div class="input-group-btn">
+	          	<button class="btn btn-default " type="submit" value = "Search"><i class="glyphicon glyphicon-search"></i></button>
+	          </div>  
+      		</div>
+	      <?php echo form_close(); ?>
+    	</div>	
       <div class="panel-heading">
         <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>master/branch_add">Add</a>
-      </div>
+        </div>
+        
                                 
 			    <div class="panel-body">
 			      <div class="table-responsive">
@@ -45,9 +56,8 @@
 			                    <td><?php echo $branch->telephone_no; ?></td>
 			                    
 			                    <td>
-			                      <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>master/dashboard">Activate</a>
 			                      <a class="btn btn-info" href="<?php echo base_url(); ?>master/branch_edit/<?php echo $branch->id; ?>">Edit</a>
-			                      <a class="btn btn-danger btn-sm delete-btn" href="<?php echo base_url(); ?>master/branch_delete/<?php echo $branch->id; ?>">Delete</a>
+			                      <a class="btn btn-danger btn-sm delete-btn" onclick="return confirm('Do you want to delete?');" href="<?php echo base_url(); ?>master/branch_delete/<?php echo $branch->id; ?>">Delete</a>
 			                    </td>
 			                </tr>
 			                <?php endforeach; ?>

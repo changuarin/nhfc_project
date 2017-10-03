@@ -3,10 +3,12 @@
       <h2 class="page-header">Accounts</h2>
   </div>
 </div>
-
+<div style="color:red">
+   <?php echo validation_errors(); ?> 
+</div>
 <form  action="<?php echo base_url('master/account_add/') ?>" method="post" class="form-horizontal">
 	<div class="border">
-	  <h3 class="modal-header">Add User Form</h3>
+	  <h3 class="modal-header">Add User Form </h3>
 	</div>
 
   <div class="form-group">

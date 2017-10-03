@@ -3,18 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller 
 {
-	public function __construct()
-	{
-		parent::__construct();
-		
-		if($this->session->userdata('access') == 'sales' || $this->session->userdata('access') == 'accounting' || $this->session->userdata('access') == 'collection')
-		{
-			$this->session->set_flashdata('no_access', 'Sorry, you are not logged in');
-			
-			redirect('user/account');
-		}
-		
-	}
 
 	public function login()
 	{
@@ -86,11 +74,12 @@ class User extends CI_Controller
 		}
 		*/
 
+
 		if($_POST)
 		{
 			$this->input->post('branch');
 			$this->session->set_userdata('branch', $this->input->post('branch'));
-			//$this->session->set_flashdata('branch_name', "Activate Branch " .$branch->name. "" );
+			//$this->session->set_flashdata('branch_name', "Activate Branch " .$branch. "" );
 		}
 		else
 		{

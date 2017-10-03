@@ -6,7 +6,11 @@
                               
 <form action="<?php echo base_url('master/branch_edit/' . $branch->id); ?>" method="post" class="form-horizontal">
   <h4 class="modal-header">Edit Branch</h4>
-                                                            
+
+<div style="color:red">
+   <?php echo validation_errors(); ?> 
+</div>                                   
+   
   <div class="form-group">
     <label class="control-label col-md-3">Name: </label>
       <div class="col-md-6">

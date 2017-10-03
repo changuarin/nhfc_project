@@ -289,7 +289,6 @@
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url(); ?>/assets/js/startmin.js"></script>
 
-<script src="<?php echo base_url(); ?>/assets/js/jquery-ui.min"></script>
 
 
 

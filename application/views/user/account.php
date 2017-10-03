@@ -12,14 +12,15 @@
 
 <div class="row5">
   <?php echo form_open('user/index') ?>
-    <h4>Select Branch</h4>
-      <select class="form-control input-sm"   name="branch">
+    <h3>Select Branch</h3>
+      <select class="form-control input-lg"   name="branch">
 	      <?php if(isset($branches)) : ?>
 	          <?php foreach($branches as $branch) : ?>  
 	              <option value="<?php echo $branch->id; ?>" <?php echo $branch->id == $this->session->userdata('branch') ? 'selected' : ''; ?>><?php echo $branch->name; ?></option>
 	          <?php endforeach; ?>
 	      <?php endif; ?>
       </select>   
+      <br>
         <input type="submit" value="Activate" name="active" class="btn btn-primary "> 
   <?php echo form_close();  ?>
 </div>    

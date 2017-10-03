@@ -94,7 +94,7 @@
 		                        <td>
 		                         <input onclick="showModal('myModal<?php echo $client->id; ?>')" class="btn btn-info" type="button" value="View">
 		                            <a class="btn btn-info" href="<?php echo base_url(); ?>master/client_edit/<?php echo $client->id; ?>">Edit</a>
-		                            <a class="btn btn-danger btn-sm delete-btn"  onclick="return confirm(' you want to delete?');" href="<?php echo base_url(); ?>master/client_delete/<?php echo $client->id; ?>">Delete</a>
+		                            <a class="btn btn-danger btn-sm delete-btn"  onclick="return confirm('Do you want to delete?');" href="<?php echo base_url(); ?>master/client_delete/<?php echo $client->id; ?>">Delete</a>
 		                        </td>
 		                    </tr>
 	                    <?php endforeach; ?>

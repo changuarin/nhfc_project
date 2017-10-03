@@ -50,13 +50,6 @@ class Master_model extends CI_Model
 
 	///--- ! BRANCH MODEL ! ---///
 
-	public function get_branches()
-	{
-		$this->db->order_by('name','asc');
-		$query = $this->db->get('branches');
-
-		return $query->result();
-	}
 	public function get_branch($id)
 	{
 		$this->db->where('id', $id);

@@ -13,7 +13,9 @@
     <h2 class="page-header">Branches</h2>
   </div>
 </div>
-
+<div style="color:red">
+   <?php echo validation_errors(); ?> 
+</div>
 <form  action="<?php echo base_url('master/branch_add/') ?>" method="post" class="form-horizontal">
   <div class="border">
     <h3 class="modal-header">Add Branch Form</h3>

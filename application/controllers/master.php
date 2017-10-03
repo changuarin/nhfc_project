@@ -19,15 +19,17 @@ public function __construct()
 	}
 
 	public function account_index()
-	{
+	{ 
 		 $this->load->library('pagination');
 
 	 	 $total_rows = $this->db->count_all('users');
-	 	 $limit = 4;
+	 	 $limit = 2;
 
 	 	 $start = $this->uri->segment(3);
 
 	 	 $this->db->limit($limit, $start);
+	 	 $keyword = $this->input->post('keyword');
+	 	 $this->db->like('first_name', $keyword);
 	   $query = $this->db->get('users');
 	   $data['users'] = $query->result();
 
@@ -50,14 +52,18 @@ public function __construct()
 		 $config['last_tag_open'] = "<li>";
 		 $config['last_tagl_close'] = "</li>";
 
-	     $this->pagination->initialize($config);	
-	    $data['main_content'] = 'master/account/index';
-		$this->load->view('layouts/main', $data);	
+	   $this->pagination->initialize($config);	
+	   $data['main_content'] = 'master/account/index';
+		 $this->load->view('layouts/main', $data);	
 	}
 
 	public function account_add()
 	{
-		$this->form_validation->set_rules('first_name','First Name','trim|required');
+		$this->form_validation->set_rules('first_name','First Name','trim|required|min_length[2]');
+		$this->form_validation->set_rules('middle_name','Middle Name','trim|required|min_length[2]');
+		$this->form_validation->set_rules('last_name','Last Name','trim|required|min_length[2]');
+		$this->form_validation->set_rules('username','Username','trim|required|min_length[6]');
+		$this->form_validation->set_rules('password','password','trim|required|min_length[6]');
 
 		if($this->form_validation->run() == FALSE)
 		{
@@ -79,7 +85,7 @@ public function __construct()
 			if($this->master_model->account_add($data))
 			{
 			$this->session->set_flashdata('user_added','User Successfully Added.');
-			redirect('login/get_users');
+			redirect('master/account_index');
 
 			}	
 		}	
@@ -87,7 +93,11 @@ public function __construct()
 
 	public function account_edit($id)
 	{
-		$this->form_validation->set_rules('first_name', 'First Name', 'required|trim|min_length[6]');
+		$this->form_validation->set_rules('first_name','First Name','trim|required|min_length[2]');
+		$this->form_validation->set_rules('middle_name','Middle Name','trim|required|min_length[2]');
+		$this->form_validation->set_rules('last_name','Last Name','trim|required|min_length[2]');
+		$this->form_validation->set_rules('username','Username','trim|required|min_length[6]');
+		$this->form_validation->set_rules('password','password','trim|required|min_length[6]');
 		
 		if($this->form_validation->run() == FALSE)
 		{
@@ -134,49 +144,55 @@ public function __construct()
 	public function branch_index()
 	{
 		// Get record count
-	 	 $this->load->library('pagination');
+	 	$this->load->library('pagination');
 
-	 	 $total_rows = $this->db->count_all('branches');
-	 	 $limit = 5;
+	 	$total_rows = $this->db->count_all('branches');
+	 	$limit = 5;
 
-	 	 $start = $this->uri->segment(3);
+	 	$start = $this->uri->segment(3);
 
-	 	 $this->db->order_by('name','asc');
-	 	 $this->db->limit($limit, $start);
-	     $query = $this->db->get('branches');
-	     $data['branches'] = $query->result();
+	 	$this->db->order_by('name','asc');
+	 	$this->db->limit($limit, $start);
+	 	$keyword    =   $this->input->post('keyword');
+	 	$this->db->like('name', $keyword);
+	  $query = $this->db->get('branches');
+	  $data['branches'] = $query->result();
 
-	     $config['base_url'] = 'http://localhost/nhfc/index.php/master/branch_index/';
-	     $config['total_rows'] = $total_rows;
-	     $config['per_page'] = $limit;
+	  $config['base_url']   = 'http://localhost/nhfc/index.php/master/branch_index/';
+	  $config['total_rows'] = $total_rows;
+	  $config['per_page']   = $limit;
 
-	     $config['full_tag_open'] = "<ul class='pagination'>";
-		 $config['full_tag_close'] ="</ul>";
-		 $config['num_tag_open'] = '<li>';
-		 $config['num_tag_close'] = '</li>';
-		 $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-		 $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-		 $config['next_tag_open'] = "<li>";
-		 $config['next_tagl_close'] = "</li>";
-		 $config['prev_tag_open'] = "<li>";
-		 $config['prev_tagl_close'] = "</li>";
-		 $config['first_tag_open'] = "<li>";
-		 $config['first_tagl_close'] = "</li>";
-		 $config['last_tag_open'] = "<li>";
-		 $config['last_tagl_close'] = "</li>";
+	  $config['full_tag_open']    = "<ul class='pagination'>";
+		$config['full_tag_close']   = "</ul>";
+		$config['num_tag_open']     = "<li>";
+		$config['num_tag_close']    = "</li>";
+		$config['cur_tag_open']     = "<li class='disabled'><li class='active'><a href='#'>";
+		$config['cur_tag_close']    = "<span class='sr-only'></span></a></li>";
+		$config['next_tag_open']    = "<li>";
+		$config['next_tagl_close']  = "</li>";
+		$config['prev_tag_open']    = "<li>";
+	  $config['prev_tagl_close']  = "</li>";
+		$config['first_tag_open']   = "<li>";
+		$config['first_tagl_close'] = "</li>";
+		$config['last_tag_open']    = "<li>";
+		$config['last_tagl_close']  = "</li>";
 
 	     
 	  
-	     $this->pagination->initialize($config);	
-	    $data['main_content'] = 'master/branch/index';
+	  $this->pagination->initialize($config);	
+	  $data['main_content'] = 'master/branch/index';
 		$this->load->view('layouts/main', $data);		
 	}
 	public function branch_add()
 	{
 
-		$this->form_validation->set_rules('name','Name','trim|required');
+		$this->form_validation->set_rules('name','Branch Name','trim|required|min_length[3]');
+		$this->form_validation->set_rules('company','Company','trim|required|min_length[3]');
+		$this->form_validation->set_rules('office_in_charge','Office In Charge','trim|required|min_length[2]');
+		$this->form_validation->set_rules('address','Address','trim|required|min_length[6]');
+		$this->form_validation->set_rules('mobile_no','Mobile No','trim|required|max_length[11]');
+		$this->form_validation->set_rules('telephone_no','Telephone No','trim|required|max_length[13]');
 		
-
 		if($this->form_validation->run() == FALSE)
 		{
 			$data['main_content'] = 'master/branch/add';
@@ -185,11 +201,11 @@ public function __construct()
 		else
 		{
 			$data = array
-			(
-				'name' 		 		=>$this->input->post('name'),
-				'company'     		=>$this->input->post('company'),
+			( 
+				'name' 		 	      	=>$this->input->post('name'),
+				'company'       		=>$this->input->post('company'),
 				'office_in_charge'  =>$this->input->post('office_in_charge'),	
-				'address'    		=>$this->input->post('address'),
+				'address'       		=>$this->input->post('address'),
 				'mobile_no'         =>$this->input->post('mobile_no'),
 				'telephone_no'      =>$this->input->post('telephone_no'),
 				'fax_no'            =>$this->input->post('fax_no'),
@@ -212,7 +228,12 @@ public function __construct()
 
 	public function branch_edit($id)
 	{
-		$this->form_validation->set_rules('name', 'Branch Name', 'required|trim|min_length[6]');
+		$this->form_validation->set_rules('name','Branch Name','trim|required|min_length[3]');
+		$this->form_validation->set_rules('company','Company','trim|required|min_length[3]');
+		$this->form_validation->set_rules('office_in_charge','Office In Charge','trim|required|min_length[2]');
+		$this->form_validation->set_rules('address','Address','trim|required|min_length[6]');
+		$this->form_validation->set_rules('mobile_no','Mobile No','trim|required|max_length[11]');
+		$this->form_validation->set_rules('telephone_no','Telephone No','trim|required|max_length[13]');
 		
 		if($this->form_validation->run() == FALSE)
 		{
@@ -268,7 +289,7 @@ public function __construct()
 		$this->load->library('pagination');
 
  		$total_rows = $this->db->count_all('clients');
- 		$limit = 3;
+ 		$limit = 1;
 
  		$start = $this->uri->segment(3);
  	 
@@ -276,24 +297,24 @@ public function __construct()
   	$query = $this->db->get('clients');
   	$data['clients'] = $query->result();
 
-	  $config['base_url'] = 'http://localhost/nhfc/index.php/master/client_index/';
-	  $config['total_rows'] = $total_rows;
-	  $config['per_page'] = $limit;
+	  $config['base_url']   = 'http://localhost/nhfc/index.php/master/client_index/';
+    $config['total_rows'] = $total_rows;
+    $config['per_page']   = $limit;
 
-	  $config['full_tag_open'] = "<ul class='pagination'>";
-		$config['full_tag_close'] ="</ul>";
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-		$config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-		$config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-		$config['next_tag_open'] = "<li>";
-		$config['next_tagl_close'] = "</li>";
-		$config['prev_tag_open'] = "<li>";
-		$config['prev_tagl_close'] = "</li>";
-		$config['first_tag_open'] = "<li>";
-		$config['first_tagl_close'] = "</li>";
-		$config['last_tag_open'] = "<li>";
-		$config['last_tagl_close'] = "</li>";
+    $config['full_tag_open']    = "<ul class='pagination'>";
+	  $config['full_tag_close']   = "</ul>";
+	  $config['num_tag_open']     = "<li>";
+	  $config['num_tag_close']    = "</li>";
+	  $config['cur_tag_open']     = "<li class='disabled'><li class='active'><a href='#'>";
+	  $config['cur_tag_close']    = "<span class='sr-only'></span></a></li>";
+	  $config['next_tag_open']    = "<li>";
+	  $config['next_tagl_close']  = "</li>";
+	  $config['prev_tag_open']    = "<li>";
+	  $config['prev_tagl_close']  = "</li>";
+  	$config['first_tag_open']   = "<li>";
+	  $config['first_tagl_close'] = "</li>";
+	  $config['last_tag_open']    = "<li>";
+  	$config['last_tagl_close']  = "</li>";
 
   	$this->pagination->initialize($config);
 
@@ -378,6 +399,16 @@ public function __construct()
 	{
 		$this->form_validation->set_rules('first_name', 'First Name', 'required|trim|min_length[6]');
 
+		/*$config = array(
+			'upload_path' => 'assets/upload/',
+			'allowed_types' => 'jpg|jpeg|png',
+			'max_size' => 0,
+			'overwrite' =>TRUE
+			//'filename' => url_title($this->input->post('file'))
+			);
+		$this->load->library('upload', $config);
+	  */
+
 		if($this->form_validation->run() == FALSE )
 		{
 			$data['branches'] = $this->master_model->get_branches();
@@ -391,10 +422,12 @@ public function __construct()
 		}
 		else
 		{
-			
+			//$this->upload->do_upload('file');
+			//$this->upload->overwrite = true;
 			$birthdate = date('Y-m-d', strtotime($this->input->post('birthdate')));
 			$data = array
 				(
+					//'picture'  				=> $this->upload->file_name,
 					'first_name' 				=> $this->input->post('first_name'),
 					'middle_name' 			=> $this->input->post('middle_name'),
 					'last_name' 				=> $this->input->post('last_name'),

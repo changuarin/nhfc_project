@@ -168,6 +168,10 @@
     {
         margin-left: 20px;
     } 
+    .search
+    {
+        margin-top: -70px;
+    }
 
     </style>
 
@@ -228,7 +232,7 @@
                     <!-- DASHBOARD OF BRANCHES -->
                     <?php if($this->session->userdata('branch') !== NULL) : ?>
                         <li>
-                            <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="#" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#" ><i class="fa fa-folder fa-fw"></i> Master<span class="fa arrow"></span></a>
@@ -434,6 +438,9 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url(); ?>/assets/js/startmin.js"></script>
+
+<script src="<?php echo base_url(); ?>/assets/js/jquery-ui.min.js"></script>
+
 
 </body>
 </html>

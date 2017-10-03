@@ -3,6 +3,9 @@
 		<h2 class="page-header">Accounts</h2>
 	</div>
 </div>
+<div style="color:red">
+   <?php echo validation_errors(); ?> 
+</div>
 <form action="<?php echo base_url('master/account_edit/' . $user->id); ?>" method="post" class="form-horizontal">
   <div class="border">
      <h3 class="modal-header">Edit User Form</h3>
