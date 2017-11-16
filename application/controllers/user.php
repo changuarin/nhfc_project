@@ -31,7 +31,6 @@ class User extends CI_Controller
 					
 				);
 				$this->session->set_userdata($user_data);
-
 				$this->session->set_flashdata('login_success', 'You are now Logged in.');
 				$this->session->set_flashdata('login_successs', "Logged in as " .$username. "");
 
@@ -73,15 +72,13 @@ class User extends CI_Controller
 
 		}
 		*/
-
-
 		if($_POST)
 		{
 			$this->input->post('branch');
 			$this->session->set_userdata('branch', $this->input->post('branch'));
 			//$this->session->set_flashdata('branch_name', "Activate Branch " .$branch. "" );
 		}
-		else
+		else 
 		{
 		 $this->session->unset_userdata('branch');
 		
@@ -95,6 +92,7 @@ class User extends CI_Controller
 	{
 		$data['main_content'] = 'user/account';
 		$data['branches'] = $this->master_model->get_branches();
+		$this->session->set_flashdata("branch_name", "Your in Branch");
 		$this->load->view('layouts/main', $data);
 	}
 

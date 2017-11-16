@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2017 at 04:07 AM
+-- Generation Time: Nov 16, 2017 at 01:22 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -112,14 +112,18 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `is_active` enum('Active','Inactive') NOT NULL,
   `is_problem_acount` int(11) NOT NULL,
   `is_arrears` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clients`
 --
 
 INSERT INTO `clients` (`id`, `branch_id`, `type_id`, `group`, `payment_source_id`, `gsis_sss_no`, `pension_type_id`, `first_name`, `middle_name`, `last_name`, `birthdate`, `gender`, `civil_status`, `address`, `mobile_no`, `telephone_no`, `bank_acct_no`, `bank_branch`, `pension_amount`, `withdrawal_day`, `payment_type_id`, `res_cert_no`, `res_cert_place`, `res_cert_date`, `in_trust_for`, `disability`, `agent_id`, `sub_agent_id`, `picture`, `is_active`, `is_problem_acount`, `is_arrears`) VALUES
-(6, 25, 0, 'new', 1, '', 1, 'Adolff', 'Nazi', 'Hitler', '1969-12-22', 'Male', 'Single', 'San Juan City', '09175104296', '123-7894', '', 'PNB SAN JUAN', '17500.55', 25, 1, '10234232232', '', '0000-00-00', '', '', 0, 0, '129958-004-C9B8B89D1.jpg', 'Active', 0, 0);
+(6, 25, 0, 'new', 1, '', 1, 'Adolff', 'Nazi', 'Hitler', '1969-12-22', 'Male', 'Single', 'San Juan City', '09175104296', '123-7894', '', 'PNB SAN JUAN', '17500.55', 25, 1, '10234232232', '', '0000-00-00', '', '', 0, 0, '129958-004-C9B8B89D1.jpg', 'Active', 0, 0),
+(7, 2, 0, 'new', 1, '', 1, 'Amelya', 'Cortez', 'Lopez', '1987-10-08', 'Female', 'Married', 'Alaminos', '09192575829', '', '', 'PNB ALAMINOS', '20255.10', 24, 1, '1124545232432', '', '0000-00-00', '', '', 0, 0, 'NHFC_Logo1.png', 'Active', 0, 0),
+(8, 1, 0, 'new', 1, '', 1, 'Lenie', 'joy', 'Matalang', '2007-10-08', 'Male', 'Married', 'muntinlupa city', '09175104296', '123-7894', '', 'PNB ALABANG', '3870.00', 15, 1, '543215', '', '0000-00-00', '', '', 0, 0, '', 'Active', 0, 0),
+(9, 3, 0, 'new', 1, '', 1, 'Mario', 'abar', 'Hasam', '2017-10-20', 'Male', 'Married', 'baguio', '09758912345', '123-7894', '', 'PNB BAGUIO', '4100.00', 25, 1, '3213131231', '', '0000-00-00', '', '', 0, 0, '', 'Active', 0, 0),
+(10, 1, 0, 'new', 1, '', 1, 'Hasam', 'samm', 'Astaswe', '2017-11-07', 'Male', 'Single', 'alabang', '09123124121', '123-7894', '', 'PNB ALABANG', '3900.00', 19, 1, '10234232232', '', '0000-00-00', '', '', 0, 0, '', 'Active', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -141,6 +145,64 @@ INSERT INTO `departments` (`id`, `name`) VALUES
 (2, 'accounting'),
 (3, 'collection'),
 (4, 'sales');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loans`
+--
+
+CREATE TABLE IF NOT EXISTS `loans` (
+  `loan_id` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `branch_id` int(11) NOT NULL,
+  `reference_loans` int(11) NOT NULL,
+  `reference_loan` int(11) NOT NULL,
+  `reference_payment` int(11) NOT NULL,
+  `total_ob_amount` decimal(10,2) NOT NULL,
+  `loan_amount` decimal(10,2) NOT NULL,
+  `principal_amount` decimal(10,2) NOT NULL,
+  `loan_balance_amount` decimal(10,2) NOT NULL,
+  `net_proceeds` decimal(10,2) NOT NULL,
+  `interest_rate` decimal(10,2) NOT NULL,
+  `interest_amount` decimal(10,2) NOT NULL,
+  `other_charges_rate` decimal(10,3) NOT NULL,
+  `other_charges_amount` decimal(10,2) NOT NULL,
+  `processing_fee_amount` decimal(10,2) NOT NULL,
+  `collection_fee_amount` decimal(10,2) NOT NULL,
+  `advance_payment_amount` decimal(10,2) NOT NULL,
+  `loan_type` enum('New','Additional','Extension','Renewal') NOT NULL,
+  `loan_terms` varchar(250) NOT NULL,
+  `loan_date` varchar(250) NOT NULL,
+  `loan_start_date` varchar(250) NOT NULL,
+  `loan_end_date` varchar(250) NOT NULL,
+  `client_address` varchar(250) NOT NULL,
+  `res_cert_no` varchar(250) NOT NULL,
+  `res_cert_place` varchar(250) NOT NULL,
+  `res_cert_date` varchar(250) NOT NULL,
+  `co_maker_id` int(11) NOT NULL,
+  `agent_id` int(11) NOT NULL,
+  `agent_rate` varchar(250) NOT NULL,
+  `sub-agent_id` int(11) NOT NULL,
+  `sub-agent_rate` varchar(250) NOT NULL,
+  `is_primary_loan` enum('yes','no') NOT NULL,
+  `is_active` enum('yes','no') NOT NULL,
+  `is_listed` enum('yes','no') NOT NULL,
+  `added_date` varchar(250) NOT NULL,
+  `added_by` varchar(250) NOT NULL,
+  `approved_date` varchar(250) NOT NULL,
+  `is_processed` enum('yes','no') NOT NULL,
+  `processed_date` varchar(250) NOT NULL,
+  `processed_by` varchar(250) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `loans`
+--
+
+INSERT INTO `loans` (`loan_id`, `client_id`, `branch_id`, `reference_loans`, `reference_loan`, `reference_payment`, `total_ob_amount`, `loan_amount`, `principal_amount`, `loan_balance_amount`, `net_proceeds`, `interest_rate`, `interest_amount`, `other_charges_rate`, `other_charges_amount`, `processing_fee_amount`, `collection_fee_amount`, `advance_payment_amount`, `loan_type`, `loan_terms`, `loan_date`, `loan_start_date`, `loan_end_date`, `client_address`, `res_cert_no`, `res_cert_place`, `res_cert_date`, `co_maker_id`, `agent_id`, `agent_rate`, `sub-agent_id`, `sub-agent_rate`, `is_primary_loan`, `is_active`, `is_listed`, `added_date`, `added_by`, `approved_date`, `is_processed`, `processed_date`, `processed_by`) VALUES
+(1, 8, 1, 0, 0, 0, '0.00', '3800.00', '11400.00', '0.00', '10497.60', '0.02', '684.00', '0.006', '68.40', '150.00', '0.00', '0.00', 'New', '3', '2017-11-08', '2017-12', '', '', '', '', '', 0, 0, '', 0, '', 'yes', 'yes', 'yes', '', '', '', 'yes', '2017-11-08', 'nhfc_chan'),
+(2, 8, 1, 0, 0, 0, '0.00', '3800.00', '11400.00', '0.00', '10497.60', '0.02', '684.00', '0.006', '68.40', '150.00', '0.00', '0.00', 'New', '3', '2017-11-08', '2017-12', '2018-02', '', '', '', '', 0, 0, '', 0, '', 'yes', 'yes', 'yes', '', '', '', 'yes', '2017-11-08', 'nhfc_chan');
 
 -- --------------------------------------------------------
 
@@ -222,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   `access` enum('admin','accounting','collection','sales') DEFAULT NULL,
   `status` enum('active','inactive') NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -230,9 +292,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `middle_name`, `last_name`, `username`, `password`, `access`, `status`) VALUES
 (1, 'Christian', 'Ramos', 'Guarin', 'nhfc_chan', 'b877d761eac325cf01e2579e9434cd7c', 'admin', 'active'),
-(8, 'Mark', 'C', 'Ramos', 'nhfc_mark', 'd2f0e963198965722fd22e9ab414efbc', 'admin', 'active'),
-(10, 'ASDF', 'qwerty', 'asdfghjk', 'nhfc_davis', 'b3f7935258c6088e828159e7908658b7', 'accounting', 'active'),
-(11, 'aaaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'nhfc_sales', 'a53362ceb9976ca637fe73bf45bd3a2c', 'accounting', 'active');
+(8, 'Mark', 'C', 'Ramos', 'nhfc_mark', 'd2f0e963198965722fd22e9ab414efbc', 'admin', 'active');
 
 --
 -- Indexes for dumped tables
@@ -255,6 +315,12 @@ ALTER TABLE `clients`
 --
 ALTER TABLE `departments`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `loans`
+--
+ALTER TABLE `loans`
+  ADD PRIMARY KEY (`loan_id`);
 
 --
 -- Indexes for table `payment_source`
@@ -293,12 +359,17 @@ ALTER TABLE `branches`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `loans`
+--
+ALTER TABLE `loans`
+  MODIFY `loan_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `payment_source`
 --
@@ -318,7 +389,7 @@ ALTER TABLE `pension_type`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

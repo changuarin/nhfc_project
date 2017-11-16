@@ -50,6 +50,17 @@ class Master_model extends CI_Model
 
 	///--- ! BRANCH MODEL ! ---///
 
+	public function get_branches()
+	{
+
+		//$this->db->where('branches_id', $branch_id);
+		$this->db->order_by('name','asc');
+		$query = $this->db->get('branches');
+
+
+		return $query->result();
+	}
+	
 	public function get_branch($id)
 	{
 		$this->db->where('id', $id);
@@ -115,16 +126,37 @@ class Master_model extends CI_Model
 		return $query;
 	}
 
-	public function get_clients()
+	public function get_clients($branch_id)
 	{
-		$this->db->select(
-			'clients.id, clients.first_name, clients.picture, clients.middle_name, clients.last_name,clients.birthdate, clients.gender, clients.civil_status, clients.address, clients.mobile_no, clients.telephone_no, clients.res_cert_no, clients.group, clients.is_active, clients.bank_branch, clients.pension_amount, clients.withdrawal_day, branches.name as branch_name, payment_source.name as payment_source_name, pension_type.name as pension_type_name, payment_type.name as payment_type_name');
+		$this->db->select
+		(
+			"clients.id, 
+			 CONCAT(clients.last_name, ', ', clients.first_name , ' ', clients.middle_name) AS fullname,
+			 clients.picture, 
+			 clients.birthdate,
+			 clients.gender, 
+			 clients.civil_status, 
+			 clients.address, 
+			 clients.mobile_no, 
+			 clients.telephone_no, 
+			 clients.res_cert_no, 
+			 clients.group, 
+			 clients.is_active, 
+			 clients.bank_branch, 
+			 clients.pension_amount,
+			 clients.withdrawal_day, 
+			 branches.name as branch_name, 
+			 branches.id as branch_id,
+			 payment_source.name as payment_source_name, 
+			 pension_type.name as pension_type_name, 
+			 payment_type.name as payment_type_name"
+		);
 		$this->db->from('clients');
 		$this->db->join('branches', 'clients.branch_id = branches.id');
 		$this->db->join('payment_source', 'clients.payment_source_id = payment_source.id');
 		$this->db->join('pension_type', 'clients.pension_type_id = pension_type.id');
 		$this->db->join('payment_type', 'clients.payment_type_id = payment_type.id');
-
+		$this->db->where('branches.id', $branch_id);
 		$query = $this->db->get();
 
 		return $query->result();
@@ -133,15 +165,38 @@ class Master_model extends CI_Model
 	public function get_client($id)
 	{
 
-		$this->db->select('clients.id, clients.first_name, clients.middle_name, clients.last_name,clients.birthdate, clients.gender, clients.civil_status, clients.address, clients.telephone_no, clients.mobile_no, clients.res_cert_no, clients.group, clients.is_active, clients.bank_branch, clients.pension_amount, clients.withdrawal_day, branches.name as branch_name, branches.id as branches_id, payment_source.name as payment_source_name, payment_source.id as payment_source_id, pension_type.name as pension_type_name, pension_type.id as pension_type_id, payment_type.name as payment_type_name');
+		$this->db->select
+		(
+		 "clients.id, 
+			CONCAT(clients.last_name, ', ', clients.first_name , ' ', clients.middle_name) AS fullname,
+			clients.birthdate, 
+			clients.gender, 
+			clients.civil_status, 
+			clients.address, 
+			clients.telephone_no,
+			clients.mobile_no, 
+			clients.res_cert_no, 
+			clients.group, 
+			clients.is_active, 
+			clients.bank_branch, 
+			clients.pension_amount, 
+			clients.withdrawal_day, 
+			branches.name as branch_name, 
+			branches.id as branches_id, 
+			payment_source.name as payment_source_name, 
+			payment_source.id as payment_source_id, 
+			pension_type.name as pension_type_name, 
+			pension_type.id as pension_type_id, 
+			payment_type.name as payment_type_name"
+		);
 		$this->db->from('clients');
 		$this->db->join('branches', 'clients.branch_id = branches.id');
 		$this->db->join('payment_source', 'clients.payment_source_id = payment_source.id');
 		$this->db->join('pension_type', 'clients.pension_type_id = pension_type.id');
 		$this->db->join('payment_type', 'clients.payment_type_id = payment_type.id');
 		$this->db->where('clients.id', $id);
-		$query = $this->db->get();
 
+		$query = $this->db->get();
 		return $query->row();
 
 	}

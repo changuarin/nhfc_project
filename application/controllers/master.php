@@ -232,7 +232,6 @@ public function __construct()
 		$this->form_validation->set_rules('company','Company','trim|required|min_length[3]');
 		$this->form_validation->set_rules('office_in_charge','Office In Charge','trim|required|min_length[2]');
 		$this->form_validation->set_rules('address','Address','trim|required|min_length[6]');
-		$this->form_validation->set_rules('mobile_no','Mobile No','trim|required|max_length[11]');
 		$this->form_validation->set_rules('telephone_no','Telephone No','trim|required|max_length[13]');
 		
 		if($this->form_validation->run() == FALSE)
@@ -284,23 +283,17 @@ public function __construct()
 
 	public function client_index()
 	{
-		//print_r($this->session->all_userdata());
-
 		$this->load->library('pagination');
-
  		$total_rows = $this->db->count_all('clients');
- 		$limit = 1;
-
+ 		$limit = 5;
  		$start = $this->uri->segment(3);
- 	 
+ 	 	$keyword    =   $this->input->post('keyword');
+	 	$this->db->like('first_name', $keyword);
  		$this->db->limit($limit, $start);
-  	$query = $this->db->get('clients');
-  	$data['clients'] = $query->result();
-
+ 		
 	  $config['base_url']   = 'http://localhost/nhfc/index.php/master/client_index/';
     $config['total_rows'] = $total_rows;
     $config['per_page']   = $limit;
-
     $config['full_tag_open']    = "<ul class='pagination'>";
 	  $config['full_tag_close']   = "</ul>";
 	  $config['num_tag_open']     = "<li>";
@@ -318,7 +311,7 @@ public function __construct()
 
   	$this->pagination->initialize($config);
 
-    $data['clients2'] = $this->master_model->get_clients();
+    $data['clients2'] = $this->master_model->get_clients($this->session->userdata('branch'));
     $data['main_content'] = 'master/client/index';
 		$this->load->view('layouts/main', $data);
 	}

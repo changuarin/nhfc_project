@@ -33,7 +33,7 @@
   {
     float: right;
     margin-right: 120px;
-    margin-top: -220px;
+    margin-top: -170px;
   }
   .modal_image
   {
@@ -43,7 +43,7 @@
     height: 150px;
     float: right;
     margin-right: -150px;
-    margin-top: -400px;
+    margin-top: -350px;
   }
 </style>
 
@@ -67,6 +67,16 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
+      <div class="search">
+        <?php echo form_open('master/client_index'); ?>
+          <div class="input-group col-lg-5">
+            <input type="text" class="form-control" placeholder="Search" name = "keyword">
+            <div class="input-group-btn">
+              <button class="btn btn-default " type="submit" value = "Search"><i class="glyphicon glyphicon-search"></i></button>
+            </div>  
+          </div>
+        <?php echo form_close(); ?>
+      </div>  
       <div class="panel-heading">
           <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>master/client_add">Add</a>
       </div>
@@ -75,26 +85,22 @@
                 <table class="table table-bordered table-hover table-striped">
 	              	<thead>
 	                  <tr>
-	                      <th>First Name</th>
-	                      <th>Middle Name</th>
-	                      <th>Last Name</th>
+	                      <th>Name</th>
 	                      <th>Pension Amount No.</th>
 	                      <th>Action</th>
 	                  </tr>
 	               	</thead>
-
-	                <?php if(isset($clients)) : ?>
-	                    <?php foreach($clients as $client) : ?>
+ 
+	                <?php if(isset($clients2)) : ?>
+	                    <?php foreach($clients2 as $client) : ?>
 		                    <tr>
-		                        <td><?php echo $client->first_name; ?></td>
-		                        <td><?php echo $client->middle_name; ?></td>
-		                        <td><?php echo $client->last_name; ?></td>
+		                        <td><?php echo $client->fullname; ?></td>
 		                        <td><?php echo $client->bank_branch; ?></td>
 
 		                        <td>
-		                         <input onclick="showModal('myModal<?php echo $client->id; ?>')" class="btn btn-info" type="button" value="View">
-		                            <a class="btn btn-info" href="<?php echo base_url(); ?>master/client_edit/<?php echo $client->id; ?>">Edit</a>
-		                            <a class="btn btn-danger btn-sm delete-btn"  onclick="return confirm('Do you want to delete?');" href="<?php echo base_url(); ?>master/client_delete/<?php echo $client->id; ?>">Delete</a>
+		                         <input onclick="showModal('myModal<?php echo $client->id; ?>')" class="btn btn-xs btn-info" type="button" value="View">
+		                            <a class="btn btn-xs btn-info" href="<?php echo base_url(); ?>master/client_edit/<?php echo $client->id; ?>">Edit</a>
+		                            <a class="btn btn-xs btn-danger btn-sm delete-btn"  onclick="return confirm('Do you want to delete?');" href="<?php echo base_url(); ?>master/client_delete/<?php echo $client->id; ?>">Delete</a>
 		                        </td>
 		                    </tr>
 	                    <?php endforeach; ?>
@@ -121,9 +127,7 @@
                         <h3 class="modal-title">Client Information</h3>
                         <div class="form-group">
                           <div class="modal_left">
-                            <p> <label>First Name: </label> <?php echo $client->first_name; ?> </p>
-                            <p> <label>Middle Name:</label> <?php echo $client->middle_name; ?> </p>
-                            <p> <label>Last Name: </label> <?php echo $client->last_name; ?> </p>
+                            <p> <label>Full Name: </label> <?php echo $client->fullname; ?> </p>
                             <p> <label>Birth Date: </label>   <?php echo $client->birthdate; ?> </p>
                             <p> <label>Gender: </label>   <?php echo $client->gender; ?> </p>
                             <p> <label>Civil Status: </label>   <?php echo $client->civil_status; ?> </p>

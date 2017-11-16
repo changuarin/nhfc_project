@@ -56,8 +56,8 @@
 			                    <td><?php echo $branch->telephone_no; ?></td>
 			                    
 			                    <td>
-			                      <a class="btn btn-info" href="<?php echo base_url(); ?>master/branch_edit/<?php echo $branch->id; ?>">Edit</a>
-			                      <a class="btn btn-danger btn-sm delete-btn" onclick="return confirm('Do you want to delete?');" href="<?php echo base_url(); ?>master/branch_delete/<?php echo $branch->id; ?>">Delete</a>
+			                      <a class="btn btn-xs btn-info" href="<?php echo base_url(); ?>master/branch_edit/<?php echo $branch->id; ?>">Edit</a>
+			                      <a class="btn btn-danger btn-xs delete-btn" onclick="return confirm('Do you want to delete?');" href="<?php echo base_url(); ?>master/branch_delete/<?php echo $branch->id; ?>">Delete</a>
 			                    </td>
 			                </tr>
 			                <?php endforeach; ?>

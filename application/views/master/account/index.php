@@ -56,8 +56,8 @@
 		                             
 		                              
 		                              <td>
-		                                <a class="btn btn-info" href="<?php echo base_url(); ?>master/account_edit/<?php echo $user->id; ?>">Edit</a>
-		                                <a class="btn btn-danger btn-sm delete-btn" onclick="return confirm('Do you want to delete?');" href="<?php echo base_url(); ?>master/account_delete/<?php echo $user->id; ?>">Delete</a>
+		                                <a class="btn btn-xs btn-info" href="<?php echo base_url(); ?>master/account_edit/<?php echo $user->id; ?>">Edit</a>
+		                                <a class="btn btn-xs btn-danger btn-sm delete-btn" onclick="return confirm('Do you want to delete?');" href="<?php echo base_url(); ?>master/account_delete/<?php echo $user->id; ?>">Delete</a>
 		                              </td>
 		                          </tr>
                             <?php endforeach; ?>

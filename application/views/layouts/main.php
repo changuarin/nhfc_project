@@ -182,7 +182,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Xavi</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>user/account">Xavi</a>
         </div>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -267,28 +267,28 @@
                             <a href="#" ><i class="fa fa-folder fa-fw"></i> Sales<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Client</a>
+                                    <a href="<?php echo base_url(); ?>sales/client_index"">Loan Application</a>
                                 </li>
                                 <li>
-                                    <a href="#">Verification</a>
+                                    <a href="#">Loan Processing</a>
                                 </li>
                                 <li>
-                                    <a href="#">Co-Maker</a>
+                                    <a href="#">Check Voucher</a>
                                 </li>
                                 <li>
-                                    <a href="#">Agent</a>
+                                    <a href="#">Refund Que</a>
                                 </li>
                                 <li>
-                                    <a href="#">Agent Ref. No.</a>
+                                    <a href="#">Refund Approval</a>
                                 </li>
                                 <li>
                                     <a href="#">Commission</a>
                                 </li>
                                 <li>
-                                    <a href="#">Fund Transfer Request</a>
+                                    <a href="#">RPCF Refund</a>
                                 </li>
                                 <li>
-                                    <a href="#">Fund Transfer Approval</a>
+                                    <a href="#">RPCF Expense</a>
                                 </li>
                             </ul>
                         </li>
